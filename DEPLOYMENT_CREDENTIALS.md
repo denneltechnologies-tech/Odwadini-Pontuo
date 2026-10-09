@@ -1,9 +1,14 @@
 # Odwadini Pontuo — Deployment Reference & Credentials
 
 - **GitHub Repository**: https://github.com/denneltechnologies-tech/Odwadini-Pontuo
+- **Live Preview URL**: http://odwadini-69-62-106-189.sslip.io
+- **Admin Portal**: http://odwadini-69-62-106-189.sslip.io/admin
 - **VPS Host**: `69.62.106.189`
 - **SSH User**: `root`
 - **SSH Password**: `Kissinger2026@`
 - **Dokploy Control Panel**: http://69.62.106.189:3000
 - **Project Name in Dokploy**: Odwadini Pontuo
 - **Environment**: production
+- **Auto-Deploy Webhook URL**: `http://69.62.106.189:3000/api/deploy/odw_deploy_webhook_m7k2x9`
+- **GitHub Webhook ID**: `694619108` (Status: Active, 200 OK)
+- **Persistent Data Volume**: `odwadini-pontuo-data` mounted at `/app/data` (protects `submissions.json` across deploys)
