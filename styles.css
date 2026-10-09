@@ -217,18 +217,37 @@ h1, h2, h3, h4 {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
+.header-inner,
 .main-header .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  max-width: 1400px;
+  height: 70px;
+  max-width: 1440px;
   width: 100%;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin-left: auto;
   margin-right: auto;
-  gap: 0.8rem;
+  gap: 0.6rem;
+  box-sizing: border-box;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.header-actions .btn,
+.header-actions .btn-sm {
+  padding: 0.44rem 1.05rem !important;
+  font-size: 0.84rem !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  line-height: 1.2 !important;
 }
 
 /* Institutional Brand Logo (Strict No-Wrap, Always Sharp & Crisp) */
@@ -319,10 +338,10 @@ h1, h2, h3, h4 {
 }
 
 .nav-link {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-ink-secondary);
-  padding: 0.42rem 0.62rem;
+  padding: 0.38rem 0.55rem;
   border-radius: var(--radius-full);
   transition: all var(--transition-smooth);
   cursor: pointer;
@@ -368,13 +387,6 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Header Action Controls */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex-shrink: 0;
-}
 
 .theme-toggle-btn {
   width: 36px;
@@ -1536,9 +1548,9 @@ h1, h2, h3, h4 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1040px) {
   .header-inner {
-    height: 72px;
+    height: 70px;
   }
   .top-utility-bar {
     display: none;
@@ -2019,53 +2031,7 @@ h1, h2, h3, h4 {
   }
 }
 
-/* ------------------------------- Header --------------------------------- */
-.main-header {
-  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.05), 0 12px 32px -24px rgba(16, 24, 40, 0.45);
-}
-.header-inner { height: 74px; }
-
-.brand-crest {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(203, 163, 66, 0.55);
-  background: linear-gradient(135deg, var(--color-green-rich) 0%, var(--color-green-deep) 100%);
-  box-shadow: 0 6px 16px -8px rgba(14, 61, 47, 0.7);
-  transition: transform var(--transition-smooth);
-}
-.brand-identity:hover .brand-crest { transform: rotate(-6deg) scale(1.04); }
-.brand-title { font-size: 1.3rem; }
-
-/* Pill navigation */
-.nav-menu { gap: 0.15rem; }
-.nav-link {
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 0.87rem;
-  padding: 0.5rem 0.95rem;
-}
-.nav-link:hover {
-  background-color: var(--color-green-subtle);
-  color: var(--color-green-deep);
-}
-[data-theme="dark"] .nav-link:hover {
-  background-color: var(--color-surface-subtle);
-  color: #ffffff;
-}
-.nav-link.active {
-  background-color: var(--color-green-deep);
-  color: #ffffff !important;
-  box-shadow: 0 6px 16px -8px rgba(14, 61, 47, 0.75);
-}
-.nav-link.active::after { display: none; }
-
-.theme-toggle-btn {
-  border-radius: var(--radius-full);
-  transition: transform var(--transition-smooth), border-color var(--transition-smooth), color var(--transition-smooth);
-}
-.theme-toggle-btn:hover { transform: rotate(15deg) scale(1.06); }
-
+/* [Duplicate header rules removed to prevent padding collision] */
 /* ------------------------------- Buttons -------------------------------- */
 .btn {
   border-radius: var(--radius-full);
