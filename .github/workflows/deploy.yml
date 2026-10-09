@@ -1,0 +1,19 @@
+name: Auto Deploy to Dokploy VPS
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Trigger Dokploy Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Webhook
+        run: |
+          echo "Triggering Dokploy Webhook on VPS..."
+          RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST "http://69.62.106.189:3000/api/deploy/odw_deploy_webhook_m7k2x9")
+          echo "$RESPONSE"

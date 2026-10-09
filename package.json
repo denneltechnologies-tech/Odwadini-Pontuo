@@ -1,0 +1,19 @@
+{
+  "name": "odwadini-pontuo",
+  "version": "1.0.0",
+  "description": "Odwadini Mpuntuo — Market Women Wellness & Fun Day Event Portal by 360 Group Ltd",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "odwadini-mpuntuo",
+    "market-women",
+    "makola-market",
+    "ghana",
+    "360-group-ltd"
+  ],
+  "author": "360 Group Ltd",
+  "license": "ISC"
+}
