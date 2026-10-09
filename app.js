@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initMembershipSwitch();
   initPassLiveSync();
+  initHeroCarousel();
+  initAllGallery();
 });
 
 function initMembershipSwitch() {
@@ -498,39 +500,319 @@ function showToast(message, type = 'default', duration = 4000) {
 }
 
 /* ==========================================================================
-   12. INTERACTIVE EVENT PHOTO GALLERY & LIGHTBOX
+   11b. HERO CAROUSEL AUTO-TRANSITION SLIDESHOW
    ========================================================================== */
-function filterGallery(category, buttonEl) {
-  const cards = document.querySelectorAll('.gallery-card');
-  const buttons = document.querySelectorAll('.gallery-filter-btn');
+function initHeroCarousel() {
+  const carousels = document.querySelectorAll('.hero-carousel');
+  carousels.forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.hero-carousel-slide');
+    if (!slides.length) return;
 
-  buttons.forEach(b => b.classList.remove('active'));
-  if (buttonEl) buttonEl.classList.add('active');
+    const dotsContainer = carousel.querySelector('.hero-carousel-dots');
+    const tagEl = carousel.querySelector('.hero-carousel-tag');
+    const prevBtn = carousel.querySelector('#heroPrevBtn, .prev-btn');
+    const nextBtn = carousel.querySelector('#heroNextBtn, .next-btn');
 
-  cards.forEach(card => {
-    const cardCat = card.getAttribute('data-cat');
-    if (category === 'all' || cardCat === category) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
+    let current = 0;
+    let timer = null;
+
+    // Create dots if container exists
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `hero-carousel-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+        dot.addEventListener('click', () => { goToSlide(idx); startAuto(); });
+        dotsContainer.appendChild(dot);
+      });
     }
+
+    function updateTag() {
+      if (tagEl && slides[current]) {
+        const title = slides[current].getAttribute('data-title') || 'Makola Live Moments';
+        tagEl.textContent = title;
+      }
+    }
+
+    function goToSlide(index) {
+      slides[current].classList.remove('active');
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.hero-carousel-dot') : [];
+      if (dots[current]) dots[current].classList.remove('active');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+      updateTag();
+    }
+
+    function nextSlide() {
+      goToSlide(current + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(current - 1);
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(nextSlide, 4200);
+    }
+
+    function stopAuto() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAuto(); });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) { nextSlide(); startAuto(); }
+      else if (touchEndX - touchStartX > 45) { prevSlide(); startAuto(); }
+    }, { passive: true });
+
+    updateTag();
+    startAuto();
   });
 }
 
-function openLightbox(imgSrc, caption) {
+/* ==========================================================================
+   12. INTERACTIVE EVENT PHOTO GALLERY & LIGHTBOX (ALL 111 PHOTOS)
+   ========================================================================== */
+let allGalleryItems = [];
+let currentFilteredItems = [];
+let currentFilterCat = 'all';
+let galleryPageSize = 24;
+let galleryRenderedCount = 24;
+let lightboxActiveIndex = 0;
+
+function generateDefaultGalleryItems() {
+  const items = [];
+  const lastTitles = [
+    ["Health Vitals Check at Makola", "health"],
+    ["Aerobics Vitality Session", "aerobics"],
+    ["Market Queens Gathering", "community"],
+    ["Free Blood Pressure Screening", "health"],
+    ["Community Celebration & Smiles", "celebration"],
+    ["Traders Health Dialogue", "community"],
+    ["Outstanding Trader Recognition", "awards"],
+    ["Makola Market Leaders in Action", "community"],
+    ["Wellness Screening Booth", "health"],
+    ["Festive Market Gathering", "celebration"],
+    ["Odwadini Pontuo Closing Cheers", "celebration"]
+  ];
+  for (let i = 1; i <= 11; i++) {
+    const entry = lastTitles[i - 1] || ["Makola Event Moment", "community"];
+    items.push({
+      id: `ly_${i}`,
+      src: `assets/images/gallery/last-year-${i}.jpg`,
+      title: entry[0],
+      year: '2025',
+      category: entry[1],
+      caption: `Odwadini Pontuo 2025: ${entry[0]}`
+    });
+  }
+
+  const themes = [
+    ["Makola Health Screening & Consultation", "health"],
+    ["Morning Fitness & Aerobics Workout", "aerobics"],
+    ["Market Queens & Women Traders", "community"],
+    ["Odwadini Pontuo Celebration & Music", "celebration"],
+    ["Trader Excellence & Awards Ceremony", "awards"],
+    ["Blood Glucose & Wellness Check", "health"],
+    ["High-Energy Fitness Demonstration", "aerobics"],
+    ["Makola Market Leadership Forum", "community"],
+    ["Community Solidarity & Joy", "celebration"],
+    ["Market Women Health Empowerment", "health"]
+  ];
+  for (let i = 1; i <= 100; i++) {
+    const entry = themes[(i - 1) % themes.length];
+    const title = `${entry[0]} #${i}`;
+    items.push({
+      id: `ty_${i}`,
+      src: `assets/images/gallery/this-year-${i}.jpg`,
+      title,
+      year: '2026',
+      category: entry[1],
+      caption: `Odwadini Mpuntuo 2026: ${title}`
+    });
+  }
+  return items;
+}
+
+async function initAllGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  try {
+    const res = await fetch('assets/data/gallery.json');
+    if (res.ok) {
+      allGalleryItems = await res.json();
+    } else {
+      allGalleryItems = generateDefaultGalleryItems();
+    }
+  } catch (err) {
+    allGalleryItems = generateDefaultGalleryItems();
+  }
+
+  if (!allGalleryItems || !allGalleryItems.length) {
+    allGalleryItems = generateDefaultGalleryItems();
+  }
+
+  currentFilteredItems = allGalleryItems.slice();
+  galleryRenderedCount = galleryPageSize;
+  renderGalleryGrid();
+  setupGlobalLightboxEvents();
+}
+
+function renderGalleryGrid() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  const toRender = currentFilteredItems.slice(0, galleryRenderedCount);
+  grid.innerHTML = toRender.map((item, idx) => {
+    const catLabel = getCategoryLabel(item.category, item.year);
+    return `
+      <div class="gallery-card" data-cat="${item.category}" data-year="${item.year}" onclick="openLightboxByIndex(${idx})">
+        <img src="${item.src}" alt="${item.title}" loading="lazy">
+        <div class="gallery-card-overlay">
+          <span class="gallery-card-tag">${catLabel}</span>
+          <h4 class="gallery-card-title">${item.title}</h4>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateGalleryStatus();
+}
+
+function getCategoryLabel(cat, year) {
+  const map = {
+    health: '🩺 Health',
+    aerobics: '🏃 Aerobics',
+    community: '👑 Queens',
+    celebration: '🎉 Celebration',
+    awards: '🏆 Honours'
+  };
+  return `${map[cat] || 'Makola'} • ${year}`;
+}
+
+function updateGalleryStatus() {
+  const countEl = document.getElementById('galleryCountStatus');
+  const chipEl = document.getElementById('galleryEditionChip');
+  const remBadge = document.getElementById('galleryRemainingBadge');
+  const loadMoreBtn = document.getElementById('galleryLoadMoreBtn');
+  const showAllBtn = document.getElementById('galleryShowAllBtn');
+
+  const total = currentFilteredItems.length;
+  const current = Math.min(galleryRenderedCount, total);
+
+  if (countEl) countEl.textContent = `Showing ${current} of ${total} authentic moments`;
+  if (chipEl) {
+    if (currentFilterCat === '2026') chipEl.textContent = '2026 Makola Edition (100 Photos)';
+    else if (currentFilterCat === '2025') chipEl.textContent = '2025 Highlights Archive (11 Photos)';
+    else if (currentFilterCat === 'all') chipEl.textContent = 'Complete Archive (111 Photos)';
+    else chipEl.textContent = `Filtered: ${currentFilterCat.toUpperCase()} (${total} total)`;
+  }
+
+  const remaining = total - current;
+  if (remBadge) remBadge.textContent = `${remaining} left`;
+
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display = remaining > 0 ? 'inline-flex' : 'none';
+  }
+  if (showAllBtn) {
+    showAllBtn.style.display = remaining > 0 ? 'inline-flex' : 'none';
+  }
+}
+
+function loadMoreGallery() {
+  galleryRenderedCount += galleryPageSize;
+  renderGalleryGrid();
+}
+
+function showAllGallery() {
+  galleryRenderedCount = currentFilteredItems.length;
+  renderGalleryGrid();
+}
+
+function filterGallery(category, buttonEl) {
+  currentFilterCat = category;
+  const buttons = document.querySelectorAll('.gallery-filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (buttonEl) buttonEl.classList.add('active');
+
+  if (category === 'all') {
+    currentFilteredItems = allGalleryItems.slice();
+  } else if (category === '2026' || category === '2025') {
+    currentFilteredItems = allGalleryItems.filter(item => item.year === category);
+  } else {
+    currentFilteredItems = allGalleryItems.filter(item => item.category === category);
+  }
+
+  galleryRenderedCount = galleryPageSize;
+  renderGalleryGrid();
+}
+
+function openLightboxByIndex(index) {
+  if (index < 0 || index >= currentFilteredItems.length) return;
+  lightboxActiveIndex = index;
+  updateLightboxView();
+
   const modal = document.getElementById('lightboxModal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function updateLightboxView() {
+  const item = currentFilteredItems[lightboxActiveIndex];
+  if (!item) return;
+
   const img = document.getElementById('lightboxImg');
   const cap = document.getElementById('lightboxCaption');
-  if (!modal || !img) return;
+  const counter = document.getElementById('lightboxCounter');
+  const dl = document.getElementById('lightboxDownloadBtn');
 
-  img.src = imgSrc;
-  if (cap) cap.textContent = caption || 'Odwadini Mpuntuo — Makola Market';
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if (img) img.src = item.src;
+  if (cap) cap.textContent = item.caption || item.title;
+  if (counter) counter.textContent = `Photo ${lightboxActiveIndex + 1} of ${currentFilteredItems.length}`;
+  if (dl) {
+    dl.href = item.src;
+    dl.setAttribute('download', `${item.id}_odwadini_makola.jpg`);
+  }
+}
+
+function nextLightbox(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  if (!currentFilteredItems.length) return;
+  lightboxActiveIndex = (lightboxActiveIndex + 1) % currentFilteredItems.length;
+  updateLightboxView();
+}
+
+function prevLightbox(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  if (!currentFilteredItems.length) return;
+  lightboxActiveIndex = (lightboxActiveIndex - 1 + currentFilteredItems.length) % currentFilteredItems.length;
+  updateLightboxView();
 }
 
 function closeLightbox(event) {
-  if (event && event.target && (event.target.id === 'lightboxImg' || event.target.id === 'lightboxCaption')) {
+  if (event && event.target && event.target.closest && event.target.closest('.lightbox-content') && !event.target.classList.contains('lightbox-close')) {
     return;
   }
   const modal = document.getElementById('lightboxModal');
@@ -538,6 +820,17 @@ function closeLightbox(event) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
   }
+}
+
+function setupGlobalLightboxEvents() {
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('lightboxModal');
+    if (!modal || !modal.classList.contains('open')) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowRight') nextLightbox();
+    else if (e.key === 'ArrowLeft') prevLightbox();
+  });
 }
 
 /* ==========================================================================

@@ -122,7 +122,46 @@
 
         <div class="hero-visual-frame">
           <div class="hero-media-wrapper">
-            <img src="assets/images/hero-feature.jpg" alt="Makola Market Women Wellness Celebration" class="hero-media-img" loading="eager">
+            <div class="hero-carousel" id="heroCarousel">
+              <div class="hero-carousel-track" id="heroCarouselTrack">
+                <div class="hero-carousel-slide active" data-title="2026 Makola Health Screening">
+                  <img src="assets/images/gallery/this-year-1.jpg" alt="Makola Health Screening 2026" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Aerobics &amp; Vitality Workout">
+                  <img src="assets/images/gallery/last-year-2.jpg" alt="Aerobics &amp; Vitality 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Market Queens in Traditional Prints">
+                  <img src="assets/images/gallery/this-year-3.jpg" alt="Market Queens 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Community Celebration &amp; Fellowship">
+                  <img src="assets/images/gallery/last-year-5.jpg" alt="Community Celebration 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Outstanding Trader Recognitions">
+                  <img src="assets/images/gallery/this-year-5.jpg" alt="Trader Excellence Awards 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Doctor &amp; Vitals Consultations">
+                  <img src="assets/images/gallery/last-year-1.jpg" alt="Wellness Consultations 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <!-- Top Live Tag -->
+              <div class="hero-carousel-tag" id="heroCarouselTag">Makola Live Moments</div>
+
+              <!-- Carousel Controls -->
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn" id="heroPrevBtn" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+                <button class="hero-carousel-btn" id="heroNextBtn" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <!-- Floating Glass Badges -->
             <div class="hero-badge-glass hero-badge-top">
               <div class="hero-badge-icon">👑</div>
               <div>
@@ -136,9 +175,9 @@
                 <div class="hero-badge-val">100% Free</div>
                 <div class="hero-badge-lbl">Health Screenings &amp; Fun</div>
               </div>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Impact Stats Banner -->
@@ -298,77 +337,33 @@
         </div>
 
         <div class="gallery-filter-bar" id="galleryFilters">
-          <button class="gallery-filter-btn active" data-filter="all" onclick="filterGallery('all', this)">All Moments</button>
+          <button class="gallery-filter-btn active" data-filter="all" onclick="filterGallery('all', this)">All Moments (111)</button>
+          <button class="gallery-filter-btn" data-filter="2026" onclick="filterGallery('2026', this)">📸 2026 This Year (100)</button>
+          <button class="gallery-filter-btn" data-filter="2025" onclick="filterGallery('2025', this)">🏛️ 2025 Highlights (11)</button>
           <button class="gallery-filter-btn" data-filter="health" onclick="filterGallery('health', this)">🩺 Health &amp; Screenings</button>
-          <button class="gallery-filter-btn" data-filter="fitness" onclick="filterGallery('fitness', this)">🏃 Aerobics &amp; Movement</button>
-          <button class="gallery-filter-btn" data-filter="market" onclick="filterGallery('market', this)">👑 Market Queens</button>
-          <button class="gallery-filter-btn" data-filter="joy" onclick="filterGallery('joy', this)">🎉 Celebration &amp; Fun</button>
+          <button class="gallery-filter-btn" data-filter="aerobics" onclick="filterGallery('aerobics', this)">🏃 Dawn Aerobics</button>
+          <button class="gallery-filter-btn" data-filter="community" onclick="filterGallery('community', this)">👑 Market Queens</button>
+          <button class="gallery-filter-btn" data-filter="celebration" onclick="filterGallery('celebration', this)">🎉 Celebrations</button>
+          <button class="gallery-filter-btn" data-filter="awards" onclick="filterGallery('awards', this)">🏆 Awards &amp; Honours</button>
+        </div>
+
+        <div class="gallery-status-bar" id="galleryStatusBar">
+          <span id="galleryCountStatus">Showing 24 of 111 authentic moments</span>
+          <span class="gallery-count-chip" id="galleryEditionChip">Archive of 2025 &amp; 2026 Editions</span>
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
-          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-3.jpg', 'Free Blood Pressure & Diabetes Screening at Makola Market')">
-            <img src="assets/images/highlights/last-year-3.jpg" alt="Free Blood Pressure & Diabetes Screening" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Health &amp; Wellness</span>
-              <h4 class="gallery-card-title">Free BP &amp; Sugar Screenings</h4>
-            </div>
-          </div>
+          <!-- Dynamic high-res gallery loaded by app.js (111 photos) -->
+        </div>
 
-          <div class="gallery-card" data-cat="fitness" onclick="openLightbox('assets/images/highlights/last-year-5.jpg', 'Mass Sunrise Aerobics with Makola Market Women')">
-            <img src="assets/images/highlights/last-year-5.jpg" alt="Mass Sunrise Aerobics" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Aerobics &amp; Movement</span>
-              <h4 class="gallery-card-title">Dawn Fitness &amp; Energy</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="market" onclick="openLightbox('assets/images/highlights/last-year-6.jpg', 'Makola Market Women in Rich Ghanaian Prints')">
-            <img src="assets/images/highlights/last-year-6.jpg" alt="Market Queens in Kente Prints" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Market Queens</span>
-              <h4 class="gallery-card-title">The Heartbeat of Greater Accra</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="joy" onclick="openLightbox('assets/images/highlights/last-year-8.jpg', 'Joy, Traditional Dance & Music Celebration')">
-            <img src="assets/images/highlights/last-year-8.jpg" alt="Dance and Music Celebration" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Celebration</span>
-              <h4 class="gallery-card-title">Music, Dance &amp; Cultural Unity</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-1.jpg', 'Health Professional Consultations On-site')">
-            <img src="assets/images/highlights/last-year-1.jpg" alt="Doctor Consultation" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Health Screenings</span>
-              <h4 class="gallery-card-title">Personal Doctor Consultations</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="joy" onclick="openLightbox('assets/images/highlights/last-year-11.jpg', 'Appreciation & Honours for Veteran Market Leaders')">
-            <img src="assets/images/highlights/last-year-11.jpg" alt="Appreciation Ceremony" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Honours</span>
-              <h4 class="gallery-card-title">Market Women Recognition</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="market" onclick="openLightbox('assets/images/highlights/last-year-4.jpg', 'Traders Gathering and Fellowship')">
-            <img src="assets/images/highlights/last-year-4.jpg" alt="Traders Community" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Community</span>
-              <h4 class="gallery-card-title">Sisterhood in the Marketplace</h4>
-            </div>
-          </div>
-
-          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-9.jpg', 'Health Education & Wellness Advice')">
-            <img src="assets/images/highlights/last-year-9.jpg" alt="Wellness Talk" loading="lazy">
-            <div class="gallery-card-overlay">
-              <span class="gallery-card-tag">Health Education</span>
-              <h4 class="gallery-card-title">Susu Savings &amp; Health Literacy</h4>
-            </div>
-          </div>
+        <div class="gallery-load-wrapper" id="galleryLoadWrapper">
+          <button class="btn btn-primary gallery-load-btn" id="galleryLoadMoreBtn" onclick="loadMoreGallery()">
+            <span>Load More Moments (+24)</span>
+            <span id="galleryRemainingBadge" style="font-size:0.8rem; background:rgba(255,255,255,0.25); padding:2px 8px; border-radius:12px;">87 left</span>
+          </button>
+          <button class="btn btn-outline gallery-load-btn" id="galleryShowAllBtn" onclick="showAllGallery()">
+            Show All 111 Moments
+          </button>
         </div>
       </div>
     </section>
@@ -1620,12 +1615,30 @@
     </div>
   </div>
 
-  <!-- Image Lightbox Modal -->
+  <!-- Image Lightbox Modal with Full Carousel Controls -->
   <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
-    <div class="lightbox-content">
-      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
-      <img src="" alt="" id="lightboxImg" class="lightbox-img">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox(event)" title="Close (Esc)">&times;</button>
+      
+      <!-- Photo index counter -->
+      <span class="lightbox-counter" id="lightboxCounter">Photo 1 of 111</span>
+
+      <!-- Image display frame with navigation -->
+      <div class="lightbox-img-frame">
+        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" onclick="prevLightbox(event)" title="Previous photo (Left arrow)">‹</button>
+        <img src="" alt="" id="lightboxImg" class="lightbox-img">
+        <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" onclick="nextLightbox(event)" title="Next photo (Right arrow)">›</button>
+      </div>
+
       <div class="lightbox-caption" id="lightboxCaption"></div>
+
+      <!-- Action buttons -->
+      <div class="lightbox-actions">
+        <a id="lightboxDownloadBtn" href="#" download class="lightbox-action-btn" target="_blank" title="Download High-Res Photo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Photo
+        </a>
+      </div>
     </div>
   </div>
 
