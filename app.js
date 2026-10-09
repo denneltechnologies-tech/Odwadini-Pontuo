@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatedCounters();
   initMobileNav();
   initMembershipSwitch();
+  initPassLiveSync();
 });
 
 function initMembershipSwitch() {
@@ -309,18 +310,31 @@ function selectDonation(amount, buttonEl) {
   if (buttonEl) buttonEl.classList.add('active');
 }
 
+let selectedMomoNetwork = 'MTN MoMo';
+
+function selectMomoNet(network, btnEl) {
+  selectedMomoNetwork = network;
+  const chips = document.querySelectorAll('.momo-chip');
+  chips.forEach(c => c.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+}
+
 function handleDonateSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const data = collectFields(form);
   const amount = document.getElementById('donationAmount') ? document.getElementById('donationAmount').value : '';
   if (amount) data.amount = `GHS ${amount}`;
+  data.momoNetwork = selectedMomoNetwork;
+
   form.reset();
   const defaultPreset = document.querySelector('.preset-amount-button');
   document.querySelectorAll('.preset-amount-button').forEach(b => b.classList.remove('active'));
   if (defaultPreset) defaultPreset.classList.add('active');
+
   submitToServer('donate', data).then((ref) => {
-    showToast(`✓ Pledge of ${data.amount || 'received'} logged (Ref: ${ref || 'GIV'}). We'll send payment details within 24 hours — medaase!`, 'gold', 6500);
+    launchConfetti();
+    showToast(`🌟 Pledge of ${data.amount || 'contribution'} logged via ${selectedMomoNetwork} (Ref: ${ref || 'GIV'}). Medaase!`, 'gold', 6500);
   });
 }
 
@@ -379,7 +393,8 @@ function handleMemberSubmit(e) {
   data.membershipType = membershipType;
   e.target.reset();
   submitToServer('member', data).then((ref) => {
-    showToast(`🎉 Registration complete! Your member reference is ${ref || 'MBR-2026'}. See you on 1 May at Makola Market.`, 'gold', 6500);
+    launchConfetti();
+    showToast(`🎉 Registration complete! Your official pass reference is ${ref || 'MBR-2026'}. See you on 1 May at Makola Market!`, 'gold', 7500);
   });
 }
 
@@ -389,7 +404,8 @@ function handleRegisterSubmit(e) {
   closeModal('modal-register');
   e.target.reset();
   submitToServer('member', data).then((ref) => {
-    showToast(`✓ You're registered! Reference: ${ref || 'MBR-2026'} — free entry on 1 May, 6 AM at Makola Market.`, 'gold', 6000);
+    launchConfetti();
+    showToast(`✓ You're registered! Reference: ${ref || 'MBR-2026'} — free admission on 1 May, 6 AM at Makola Market.`, 'gold', 7000);
   });
 }
 
@@ -479,4 +495,166 @@ function showToast(message, type = 'default', duration = 4000) {
       }
     }, 350);
   }, duration);
+}
+
+/* ==========================================================================
+   12. INTERACTIVE EVENT PHOTO GALLERY & LIGHTBOX
+   ========================================================================== */
+function filterGallery(category, buttonEl) {
+  const cards = document.querySelectorAll('.gallery-card');
+  const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+  buttons.forEach(b => b.classList.remove('active'));
+  if (buttonEl) buttonEl.classList.add('active');
+
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-cat');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function openLightbox(imgSrc, caption) {
+  const modal = document.getElementById('lightboxModal');
+  const img = document.getElementById('lightboxImg');
+  const cap = document.getElementById('lightboxCaption');
+  if (!modal || !img) return;
+
+  img.src = imgSrc;
+  if (cap) cap.textContent = caption || 'Odwadini Mpuntuo — Makola Market';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  if (event && event.target && (event.target.id === 'lightboxImg' || event.target.id === 'lightboxCaption')) {
+    return;
+  }
+  const modal = document.getElementById('lightboxModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+/* ==========================================================================
+   13. DIGITAL PARTICIPANT PASS LIVE SYNC
+   ========================================================================== */
+function initPassLiveSync() {
+  const memberForm = document.getElementById('memberForm');
+  if (!memberForm) return;
+
+  const nameInput = memberForm.querySelector('input[placeholder*="Akosua"]');
+  const locationInput = memberForm.querySelector('input[placeholder*="Makola Market"]');
+  const sectorInput = memberForm.querySelector('input[placeholder*="Food trader"]');
+
+  const previewName = document.getElementById('previewPassName');
+  const previewLoc = document.getElementById('previewPassLocation');
+  const previewSector = document.getElementById('previewPassSector');
+
+  if (nameInput && previewName) {
+    nameInput.addEventListener('input', (e) => {
+      previewName.textContent = e.target.value.trim() || 'Akosua Mensah';
+    });
+  }
+  if (locationInput && previewLoc) {
+    locationInput.addEventListener('input', (e) => {
+      previewLoc.textContent = e.target.value.trim() || 'Makola Market';
+    });
+  }
+  if (sectorInput && previewSector) {
+    sectorInput.addEventListener('input', (e) => {
+      previewSector.textContent = e.target.value.trim() || 'Food Trader';
+    });
+  }
+}
+
+/* ==========================================================================
+   14. INTERACTIVE FAQ ACCORDION
+   ========================================================================== */
+function toggleFaq(questionEl) {
+  const item = questionEl.closest('.faq-item');
+  if (!item) return;
+
+  const isOpen = item.classList.contains('open');
+  // Optional: close siblings
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+  if (!isOpen) {
+    item.classList.add('open');
+  }
+}
+
+/* ==========================================================================
+   15. CELEBRATORY CONFETTI ENGINE (Native Canvas Physics)
+   ========================================================================== */
+function launchConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#0e3d2f', '#cba342', '#f3c053', '#8e1c25', '#25D366', '#ffffff'];
+  const confettiCount = 120;
+  const particles = [];
+
+  for (let i = 0; i < confettiCount; i++) {
+    particles.push({
+      x: canvas.width / 2,
+      y: canvas.height * 0.4,
+      vx: (Math.random() - 0.5) * 16,
+      vy: (Math.random() - 0.8) * 18,
+      size: Math.random() * 8 + 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: Math.random() * 360,
+      rSpeed: (Math.random() - 0.5) * 10,
+      gravity: 0.35,
+      alpha: 1
+    });
+  }
+
+  let animationFrame;
+  const startTime = performance.now();
+
+  function render(time) {
+    const elapsed = time - startTime;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let activeCount = 0;
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.gravity;
+      p.rotation += p.rSpeed;
+      if (elapsed > 1800) {
+        p.alpha -= 0.015;
+      }
+
+      if (p.alpha > 0 && p.y < canvas.height + 20) {
+        activeCount++;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      }
+    });
+
+    if (activeCount > 0 && elapsed < 3500) {
+      animationFrame = requestAnimationFrame(render);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      cancelAnimationFrame(animationFrame);
+    }
+  }
+
+  requestAnimationFrame(render);
 }

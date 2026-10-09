@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odwadini Mpuntuo Admin — Registrations & Inquiries</title>
+  <title>Odwadini Mpuntuo Admin — Portal & Registrations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-  <!-- LOGIN -->
+  <!-- LOGIN SCREEN -->
   <section class="login-screen" id="loginScreen">
     <div class="login-card">
       <div class="login-crest">
-        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#cba342" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="#cba342" stroke="none"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/></svg>
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2" fill="#d4af37" stroke="none"/>
+          <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/>
+        </svg>
       </div>
-      <h1 class="login-title">Odwadini Mpuntuo Admin</h1>
-      <p class="login-sub">Registrations, partnership inquiries &amp; donation pledges</p>
+      <h1 class="login-title">Odwadini Mpuntuo</h1>
+      <p class="login-sub">Admin Operations &amp; Registrations Portal • 360 Group Ltd</p>
 
       <form id="loginForm">
-        <label class="field-label" for="adminPassword">Admin Password</label>
-        <input type="password" id="adminPassword" class="field-input" placeholder="Enter password" required autofocus>
+        <label class="field-label" for="adminPassword">Master Security Key</label>
+        <div class="password-wrap">
+          <input type="password" id="adminPassword" class="field-input" placeholder="Enter administrative password" required autofocus>
+        </div>
         <p class="login-error" id="loginError"></p>
-        <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
+        <button type="submit" class="btn-primary" id="loginBtn">Access Dashboard</button>
       </form>
 
-      <a class="login-back" href="/">&larr; Back to the Odwadini Mpuntuo website</a>
+      <a class="login-back" href="/">&larr; Return to Odwadini Mpuntuo Website</a>
     </div>
   </section>
 
@@ -35,63 +40,120 @@
   <section class="dashboard" id="dashboard" style="display:none;">
     <header class="admin-header">
       <div class="admin-brand" onclick="loadAll()">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#cba342" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="#cba342" stroke="none"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/></svg>
-        <span>Odwadini Mpuntuo Admin <em>· 360 Group Ltd</em></span>
+        <div class="admin-crest-sm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#d4af37" stroke-width="2">
+            <circle cx="12" cy="12" r="4.2" fill="#d4af37" stroke="none"/>
+            <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/>
+          </svg>
+        </div>
+        <div class="admin-brand-text">
+          <span class="admin-brand-main">Odwadini Mpuntuo Admin</span>
+          <span class="admin-brand-tag">360 Group Ltd • Workers' Day 2026 Edition</span>
+        </div>
       </div>
+
       <div class="admin-header-actions">
-        <a href="/" class="btn-ghost">View Site</a>
-        <button class="btn-ghost" onclick="exportCsv()">Export CSV</button>
-        <button class="btn-outline" onclick="logout()">Log Out</button>
+        <div class="live-indicator" id="liveIndicator" title="Live auto-refresh enabled">
+          <span class="live-dot"></span>
+          <span>Live Sync</span>
+        </div>
+        <a href="/" target="_blank" class="btn-header-ghost">View Public Site &nearr;</a>
+        <button class="btn-header-ghost" onclick="exportCsv()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Export CSV
+        </button>
+        <button class="btn-header-outline" onclick="logout()">Log Out</button>
       </div>
     </header>
 
     <main class="admin-main">
-      <!-- Stat Cards -->
+      <!-- STAT METRIC CARDS -->
       <div class="stat-cards" id="statCards">
-        <div class="stat-card"><span class="stat-num" id="stTotal">0</span><span class="stat-cap">Total Signups</span></div>
-        <div class="stat-card"><span class="stat-num" id="stNew">0</span><span class="stat-cap">Awaiting Review</span></div>
-        <div class="stat-card"><span class="stat-num" id="st24">0</span><span class="stat-cap">Last 24 Hours</span></div>
-        <div class="stat-card"><span class="stat-num" id="st7">0</span><span class="stat-cap">Last 7 Days</span></div>
+        <div class="stat-card stat-card-gold">
+          <div class="stat-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <span class="stat-num" id="stTotal">0</span>
+            <span class="stat-cap">Total Submissions</span>
+          </div>
+        </div>
+
+        <div class="stat-card stat-card-alert">
+          <div class="stat-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <span class="stat-num" id="stNew">0</span>
+            <span class="stat-cap">Awaiting Review</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <span class="stat-num" id="stApproved">0</span>
+            <span class="stat-cap">Approved &amp; Confirmed</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          </div>
+          <div>
+            <span class="stat-num" id="st24">0</span>
+            <span class="stat-cap">Last 24 Hours</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Filters -->
+      <!-- FILTER & SEARCH BAR -->
       <div class="filter-bar">
         <div class="type-chips" id="typeChips">
           <button class="chip active" data-type="all">All</button>
         </div>
         <div class="filter-right">
-          <input type="search" class="search-input" id="searchInput" placeholder="Search name, email, reference...">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+            <input type="search" class="search-input" id="searchInput" placeholder="Search name, phone, email, reference...">
+          </div>
           <select class="status-select" id="statusFilter">
-            <option value="all">All statuses</option>
-            <option value="new">New</option>
-            <option value="in-review">In review</option>
+            <option value="all">All Statuses</option>
+            <option value="new">New (Awaiting Review)</option>
+            <option value="in-review">In Review</option>
             <option value="approved">Approved</option>
             <option value="closed">Closed</option>
           </select>
-          <button class="btn-ghost" onclick="loadAll()">⟳ Refresh</button>
+          <button class="btn-refresh" onclick="loadAll()" title="Refresh records">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Refresh</span>
+          </button>
         </div>
       </div>
 
-      <!-- Table -->
+      <!-- DATA TABLE -->
       <div class="table-wrap">
         <table class="data-table">
           <thead>
             <tr>
               <th>Reference</th>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Name</th>
-              <th>Contact</th>
-              <th>Detail</th>
+              <th>Date &amp; Time</th>
+              <th>Category</th>
+              <th>Name &amp; Details</th>
+              <th>Quick Contact &amp; WhatsApp</th>
               <th>Status</th>
-              <th></th>
+              <th style="text-align:right;">Actions</th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
         <div class="empty-state" id="emptyState" style="display:none;">
-          <p>No signups match this filter yet.</p>
-          <p class="empty-hint">When visitors submit membership, ticket, or sponsorship forms on the site, they will appear here instantly.</p>
+          <div class="empty-icon">📋</div>
+          <h3>No Records Found</h3>
+          <p class="empty-hint">No registrations or inquiries match your active filter. Check back or select "All".</p>
         </div>
       </div>
     </main>
@@ -108,23 +170,113 @@
         <button class="drawer-close" onclick="closeDrawer()">&times;</button>
       </div>
       <div class="drawer-body">
-        <div class="drawer-row">
-          <label>Status</label>
-          <select id="dStatus" onchange="updateStatus()">
-            <option value="new">New</option>
-            <option value="in-review">In review</option>
-            <option value="approved">Approved</option>
-            <option value="closed">Closed</option>
-          </select>
+        <div class="drawer-status-box">
+          <label class="drawer-status-label">Update Registration Status</label>
+          <div class="drawer-status-select-wrap">
+            <select id="dStatus" onchange="updateStatus()">
+              <option value="new">New</option>
+              <option value="in-review">In review</option>
+              <option value="approved">Approved</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
         </div>
+
+        <!-- QUICK OUTREACH ACTION BUTTONS -->
+        <div class="drawer-quick-actions" id="dQuickActions"></div>
+
         <div class="drawer-meta" id="dMeta"></div>
-        <h4 class="drawer-section">Submitted Details</h4>
+        <h4 class="drawer-section">Submitted Information</h4>
         <div class="detail-grid" id="dFields"></div>
       </div>
       <div class="drawer-foot">
+        <button class="btn-print-pass" onclick="openPassFromDrawer()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          Print Official Pass
+        </button>
         <button class="btn-danger" onclick="deleteCurrent()">Delete Record</button>
       </div>
     </aside>
+  </div>
+
+  <!-- PARTICIPANT PASS MODAL -->
+  <div class="pass-modal-backdrop" id="passModalBackdrop" style="display:none;">
+    <div class="pass-modal">
+      <div class="pass-modal-head">
+        <h3>Official Event Pass</h3>
+        <button class="pass-modal-close" onclick="closePassModal()">&times;</button>
+      </div>
+      <div class="pass-modal-body">
+        <div class="event-id-card" id="printArea">
+          <div class="pass-card-header">
+            <div class="pass-card-logo">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d4af37" stroke-width="2">
+                <circle cx="12" cy="12" r="4.2" fill="#d4af37" stroke="none"/>
+                <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="pass-card-title">ODWADINI MPUNTUO</div>
+              <div class="pass-card-sub">Market Women Wellness &amp; Fun Day</div>
+            </div>
+            <div class="pass-year-pill">2026</div>
+          </div>
+
+          <div class="pass-card-banner">WORKERS' DAY OFFICIAL ADMISSION PASS</div>
+
+          <div class="pass-card-content">
+            <div class="pass-avatar-wrap">
+              <div class="pass-avatar" id="passAvatar">OM</div>
+              <span class="pass-verified-badge">&#10003; Verified</span>
+            </div>
+            <div class="pass-info-block">
+              <span class="pass-label">Full Name</span>
+              <div class="pass-name" id="passName">—</div>
+
+              <div class="pass-info-row">
+                <div>
+                  <span class="pass-label">Category</span>
+                  <div class="pass-val" id="passType">—</div>
+                </div>
+                <div>
+                  <span class="pass-label">Market Stall / Sector</span>
+                  <div class="pass-val" id="passDetail">—</div>
+                </div>
+              </div>
+
+              <div class="pass-info-row">
+                <div>
+                  <span class="pass-label">Event Date</span>
+                  <div class="pass-val">1 May 2026 • 6:00 AM</div>
+                </div>
+                <div>
+                  <span class="pass-label">Venue</span>
+                  <div class="pass-val">Makola Market, Accra</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pass-card-footer">
+            <div class="pass-ref-box">
+              <span class="pass-label">Reference ID</span>
+              <div class="pass-ref-code" id="passRef">MBR-2026-000000</div>
+            </div>
+            <div class="pass-barcode-sim">
+              <div class="barcode-lines"></div>
+              <span>AUTHENTIC 360 GROUP LTD PASS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pass-modal-actions">
+        <button class="btn-primary" onclick="printPass()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          Print / Save PDF
+        </button>
+        <button class="btn-outline" onclick="closePassModal()">Close</button>
+      </div>
+    </div>
   </div>
 
   <div class="toast-wrap" id="toastWrap"></div>

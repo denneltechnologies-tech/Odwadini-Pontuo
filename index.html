@@ -6,10 +6,10 @@
   <title>Odwadini Mpuntuo — Market Women Wellness & Fun Day | 360 Group Ltd</title>
   <meta name="description" content="Odwadini Mpuntuo — the Market Women Wellness & Fun Day (Workers' Day Edition) on 1st May at Makola Market, Accra. Free health checks, financial wellness, fun and celebration for the traders of Greater Accra. Register, partner, or donate.">
 
-  <!-- Classical Editorial Fonts: Playfair Display + Plus Jakarta Sans -->
+  <!-- Classical Editorial + Modern Geometric Fonts: Outfit + Playfair Display + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 
@@ -121,21 +121,21 @@
         </div>
 
         <div class="hero-visual-frame">
-          <div class="event-poster">
-            <span class="event-poster-presenter">360 Group Ltd presents</span>
-            <h2 class="event-poster-title">Odwadini<br>Mpuntuo</h2>
-            <span class="event-poster-edition">Workers' Day Edition</span>
-            <div class="event-poster-rule"></div>
-            <ul class="event-poster-list">
-              <li>Free health checks &amp; consultations</li>
-              <li>Aerobics &amp; fun games</li>
-              <li>Susu savings &amp; BP education</li>
-              <li>Live entertainment &amp; awards</li>
-            </ul>
-            <div class="event-poster-facts">
-              <span>1 May 2026 • 6 AM – 6 PM</span>
-              <span>Makola Market, Accra</span>
+          <div class="hero-media-wrapper">
+            <img src="assets/images/hero-feature.jpg" alt="Makola Market Women Wellness Celebration" class="hero-media-img" loading="eager">
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">👑</div>
+              <div>
+                <div class="hero-badge-val">5,000+</div>
+                <div class="hero-badge-lbl">Market Women in Scope</div>
+              </div>
             </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🩺</div>
+              <div>
+                <div class="hero-badge-val">100% Free</div>
+                <div class="hero-badge-lbl">Health Screenings &amp; Fun</div>
+              </div>
           </div>
         </div>
       </div>
@@ -270,17 +270,103 @@
             </div>
 
             <div class="ball-photo-col">
-              <div class="event-poster event-poster-compact">
-                <span class="event-poster-presenter">Why it matters</span>
-                <h2 class="event-poster-title" style="font-size:1.9rem;">The economic heartbeat of Ghana</h2>
-                <div class="event-poster-rule"></div>
-                <ul class="event-poster-list">
-                  <li>Food distribution, textiles, retail &amp; micro-enterprise</li>
-                  <li>Enormous contribution to household stability &amp; national GDP</li>
-                  <li>Often neglects their own health &amp; well-being</li>
-                  <li>Odwadini Mpuntuo puts them first — for one full day</li>
-                </ul>
+              <div class="hero-media-wrapper" style="height: 100%; min-height: 380px;">
+                <img src="assets/images/market-women.jpg" alt="Makola Market Queens" class="hero-media-img" style="height: 100%;">
+                <div class="hero-badge-glass hero-badge-bottom" style="width: calc(100% - 3rem);">
+                  <div class="hero-badge-icon">💖</div>
+                  <div>
+                    <div class="hero-badge-val" style="font-size: 0.95rem;">"We trade every day — now someone cares for our health."</div>
+                    <div class="hero-badge-lbl">— Makola Market Trader</div>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Event Photo Showcase & Live Moments Gallery -->
+    <section class="gallery-section section-alt" id="gallerySection">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="section-kicker">Captured Moments</span>
+          <h2 class="section-main-title">Makola Market in Full Colour</h2>
+          <p class="section-deck">
+            Genuine smiles, vibrant Ghanaian fabrics, energetic dawn aerobics, and free community health screenings right where Ghana trades.
+          </p>
+        </div>
+
+        <div class="gallery-filter-bar" id="galleryFilters">
+          <button class="gallery-filter-btn active" data-filter="all" onclick="filterGallery('all', this)">All Moments</button>
+          <button class="gallery-filter-btn" data-filter="health" onclick="filterGallery('health', this)">🩺 Health &amp; Screenings</button>
+          <button class="gallery-filter-btn" data-filter="fitness" onclick="filterGallery('fitness', this)">🏃 Aerobics &amp; Movement</button>
+          <button class="gallery-filter-btn" data-filter="market" onclick="filterGallery('market', this)">👑 Market Queens</button>
+          <button class="gallery-filter-btn" data-filter="joy" onclick="filterGallery('joy', this)">🎉 Celebration &amp; Fun</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-3.jpg', 'Free Blood Pressure & Diabetes Screening at Makola Market')">
+            <img src="assets/images/highlights/last-year-3.jpg" alt="Free Blood Pressure & Diabetes Screening" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Health &amp; Wellness</span>
+              <h4 class="gallery-card-title">Free BP &amp; Sugar Screenings</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="fitness" onclick="openLightbox('assets/images/highlights/last-year-5.jpg', 'Mass Sunrise Aerobics with Makola Market Women')">
+            <img src="assets/images/highlights/last-year-5.jpg" alt="Mass Sunrise Aerobics" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Aerobics &amp; Movement</span>
+              <h4 class="gallery-card-title">Dawn Fitness &amp; Energy</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="market" onclick="openLightbox('assets/images/highlights/last-year-6.jpg', 'Makola Market Women in Rich Ghanaian Prints')">
+            <img src="assets/images/highlights/last-year-6.jpg" alt="Market Queens in Kente Prints" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Market Queens</span>
+              <h4 class="gallery-card-title">The Heartbeat of Greater Accra</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="joy" onclick="openLightbox('assets/images/highlights/last-year-8.jpg', 'Joy, Traditional Dance & Music Celebration')">
+            <img src="assets/images/highlights/last-year-8.jpg" alt="Dance and Music Celebration" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Celebration</span>
+              <h4 class="gallery-card-title">Music, Dance &amp; Cultural Unity</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-1.jpg', 'Health Professional Consultations On-site')">
+            <img src="assets/images/highlights/last-year-1.jpg" alt="Doctor Consultation" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Health Screenings</span>
+              <h4 class="gallery-card-title">Personal Doctor Consultations</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="joy" onclick="openLightbox('assets/images/highlights/last-year-11.jpg', 'Appreciation & Honours for Veteran Market Leaders')">
+            <img src="assets/images/highlights/last-year-11.jpg" alt="Appreciation Ceremony" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Honours</span>
+              <h4 class="gallery-card-title">Market Women Recognition</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="market" onclick="openLightbox('assets/images/highlights/last-year-4.jpg', 'Traders Gathering and Fellowship')">
+            <img src="assets/images/highlights/last-year-4.jpg" alt="Traders Community" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Community</span>
+              <h4 class="gallery-card-title">Sisterhood in the Marketplace</h4>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-cat="health" onclick="openLightbox('assets/images/highlights/last-year-9.jpg', 'Health Education & Wellness Advice')">
+            <img src="assets/images/highlights/last-year-9.jpg" alt="Wellness Talk" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span class="gallery-card-tag">Health Education</span>
+              <h4 class="gallery-card-title">Susu Savings &amp; Health Literacy</h4>
             </div>
           </div>
         </div>
@@ -364,53 +450,59 @@
           <p class="section-deck">Six connected experiences flow through the day — wellness at dawn, health and finance by midday, celebration by dusk.</p>
         </div>
 
-        <div class="schedule-list" style="max-width:900px; margin:0 auto;">
-          <div class="schedule-item">
-            <div class="schedule-time">6:00 AM – 9:00 AM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Aerobic Session</h3>
-              <p class="schedule-desc">A sunrise mass aerobics session to start Workers' Day with movement, energy, and community — before the market opens its stalls.</p>
+        <div class="schedule-rich-wrap" style="max-width:960px; margin:0 auto;">
+          <div class="schedule-card-rich">
+            <div class="schedule-card-time">6:00 AM – 9:00 AM</div>
+            <div class="schedule-card-info">
+              <h3>Sunrise Mass Aerobics Session</h3>
+              <p>A dawn fitness session to energise the body and mind before trading stalls open. Warm-ups, guided cardio, and community movement with certified instructors.</p>
             </div>
+            <img src="assets/images/aerobics.jpg" alt="Sunrise Aerobics at Makola" class="schedule-thumb" loading="lazy">
           </div>
 
-          <div class="schedule-item">
-            <div class="schedule-time">9:00 AM – 3:00 PM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Health Checks &amp; Medical Consultations</h3>
-              <p class="schedule-desc">Free on-site screenings including blood pressure checks and diabetes screening, basic consultations, and clear referral pathways for follow-up care at partner hospitals and clinics.</p>
+          <div class="schedule-card-rich">
+            <div class="schedule-card-time">9:00 AM – 3:00 PM</div>
+            <div class="schedule-card-info">
+              <h3>Free Health Screenings &amp; Doctor Consultations</h3>
+              <p>On-site medical consultations, blood pressure monitoring, blood sugar &amp; diabetes testing, eye checks, and direct referral pathways to partner hospitals.</p>
             </div>
+            <img src="assets/images/health-check.jpg" alt="Health Screenings and BP Checks" class="schedule-thumb" loading="lazy">
           </div>
 
-          <div class="schedule-item">
-            <div class="schedule-time">9:00 AM – 1:00 PM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Finance &amp; Health Talk</h3>
-              <p class="schedule-desc">Education on susu savings and blood pressure — putting financial wellness and health awareness side by side for traders.</p>
+          <div class="schedule-card-rich">
+            <div class="schedule-card-time">9:00 AM – 1:00 PM</div>
+            <div class="schedule-card-info">
+              <h3>Susu Savings &amp; Financial Wellness Masterclass</h3>
+              <p>Actionable financial education tailored for market traders: informal savings discipline, digital mobile money management, micro-insurance, and wealth preservation.</p>
             </div>
+            <img src="assets/images/traders-talk.jpg" alt="Traders Financial Education Session" class="schedule-thumb" loading="lazy">
           </div>
 
-          <div class="schedule-item">
-            <div class="schedule-time">10:00 AM – 4:00 PM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Fun Games &amp; Interactive Activities</h3>
-              <p class="schedule-desc">Games and interactive activities designed for traders to rest, laugh, and connect with women from markets across the region.</p>
+          <div class="schedule-card-rich">
+            <div class="schedule-card-time">10:00 AM – 4:00 PM</div>
+            <div class="schedule-card-info">
+              <h3>Traditional Fun Games &amp; Community Contests</h3>
+              <p>Oware competitions, ludo, dancing contests, tug-of-war, and laughter — designed for traders to unwind, make friends across markets, and celebrate.</p>
             </div>
+            <img src="assets/images/market-community.jpg" alt="Traditional Games & Fellowship" class="schedule-thumb" loading="lazy">
           </div>
 
-          <div class="schedule-item">
-            <div class="schedule-time">2:00 PM – 6:00 PM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Live Entertainment</h3>
-              <p class="schedule-desc">Music, performance, and cultural celebration carrying the market through the final hours of the day.</p>
+          <div class="schedule-card-rich">
+            <div class="schedule-card-time">2:00 PM – 6:00 PM</div>
+            <div class="schedule-card-info">
+              <h3>Live Cultural Entertainment &amp; Highlife Music</h3>
+              <p>Vibrant cultural drumming, highlife tunes, guest artist performances, and joyful dancing carrying Makola Market into the evening.</p>
             </div>
+            <img src="assets/images/celebration.jpg" alt="Live Music and Entertainment" class="schedule-thumb" loading="lazy">
           </div>
 
-          <div class="schedule-item schedule-item-gold">
-            <div class="schedule-time">4:30 PM – 6:00 PM</div>
-            <div class="schedule-body">
-              <h3 class="schedule-title">Appreciation &amp; Recognition Ceremony</h3>
-              <p class="schedule-desc">Honouring the market women who are the backbone of Ghana's informal economy — recognition, appreciation, and a grateful send-off to close the day.</p>
+          <div class="schedule-card-rich" style="border-left: 4px solid var(--color-gold-warm);">
+            <div class="schedule-card-time" style="background:var(--color-gold-light); color:var(--color-gold-deep);">4:30 PM – 6:00 PM</div>
+            <div class="schedule-card-info">
+              <h3>Appreciation &amp; Market Queens Honours Ceremony</h3>
+              <p>Prestigious citation presentations, hampers, and national recognition for veteran market queens and long-serving traders across Greater Accra.</p>
             </div>
+            <img src="assets/images/awards.jpg" alt="Awards & Recognition for Market Queens" class="schedule-thumb" loading="lazy">
           </div>
         </div>
       </div>
@@ -798,6 +890,40 @@
             <div style="margin-top:2rem; padding:1.4rem 1.5rem; background:var(--color-gold-light); border:1px solid var(--color-gold-border); border-radius:var(--radius-sm); font-size:0.9rem; color:var(--color-ink-secondary);">
               <strong>Registering on behalf of an association?</strong> Choose the Association option — we'll capture your organisation, leadership, and member count so your market is represented as one.
             </div>
+
+            <!-- Live Digital Event Pass Preview -->
+            <div class="pass-preview-card" id="passLiveCard">
+              <div class="pass-preview-head">
+                <div class="pass-preview-crest">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+                    <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/>
+                  </svg>
+                  <span class="pass-preview-org">360 Group Ltd • 2026</span>
+                </div>
+                <span class="pass-preview-pill">OFFICIAL PASS PREVIEW</span>
+              </div>
+              <div class="pass-preview-name" id="previewPassName">Akosua Mensah</div>
+              <p style="font-size:0.82rem; color:var(--color-ink-muted);">Market Women Wellness &amp; Fun Day</p>
+              <div class="pass-preview-meta">
+                <div>
+                  Sector / Trade:
+                  <strong id="previewPassSector">Food Trader</strong>
+                </div>
+                <div>
+                  Market Location:
+                  <strong id="previewPassLocation">Makola Market</strong>
+                </div>
+                <div>
+                  Event Date:
+                  <strong>1 May 2026 • 6 AM</strong>
+                </div>
+                <div>
+                  Admission Status:
+                  <strong style="color:var(--color-gold-deep);">100% Free Entry</strong>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Registration Form -->
@@ -951,6 +1077,23 @@
                 <button class="preset-amount-button active" onclick="selectDonation(500, this)">₵500</button>
                 <button class="preset-amount-button" onclick="selectDonation(1000, this)">₵1,000</button>
                 <button class="preset-amount-button" onclick="selectDonation(5000, this)">₵5,000</button>
+              </div>
+
+              <!-- Mobile Money Network Selector -->
+              <label class="form-label" style="margin-top:1.1rem; display:block; font-size:0.75rem; font-weight:700; text-transform:uppercase;">Select Mobile Money Network</label>
+              <div class="momo-net-chips" id="momoNetChips">
+                <button type="button" class="momo-chip active" data-net="MTN MoMo" onclick="selectMomoNet('MTN MoMo', this)">
+                  <span style="font-size:1.1rem;">🟡</span>
+                  <span>MTN MoMo</span>
+                </button>
+                <button type="button" class="momo-chip" data-net="Telecel Cash" onclick="selectMomoNet('Telecel Cash', this)">
+                  <span style="font-size:1.1rem;">🔴</span>
+                  <span>Telecel Cash</span>
+                </button>
+                <button type="button" class="momo-chip" data-net="AT Money" onclick="selectMomoNet('AT Money', this)">
+                  <span style="font-size:1.1rem;">🔵</span>
+                  <span>AT Money</span>
+                </button>
               </div>
 
               <form onsubmit="handleDonateSubmit(event)" id="donateForm">
@@ -1220,6 +1363,57 @@
             </div>
           </div>
         </div>
+
+        <!-- Interactive FAQ Accordion -->
+        <div style="margin-top: 4.5rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Need Answers?</span>
+            <h2 class="section-main-title">Frequently Asked Questions</h2>
+            <p class="section-deck">Everything you need to know about participating, attending, or partnering with Odwadini Mpuntuo.</p>
+          </div>
+
+          <div class="faq-accordion" id="faqAccordion">
+            <div class="faq-item open">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is entry and participation really 100% free?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                Yes! Every market woman and trader attends completely free. Screenings (blood pressure, diabetes), mass aerobics, susu financial literacy talks, games, and the appreciation ceremony are all free courtesy of 360 Group Ltd and our event partners.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What health screenings will be conducted on site?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                Licensed healthcare professionals will conduct free blood pressure monitoring, blood glucose/sugar tests, basic vitals, and physician consultations, complete with referral pathways to partner hospitals and clinics.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Can an entire market association register together?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                Yes! Visit our Membership page and select "Association" to register your market queen leadership and member delegation so your group is formally welcomed and allocated designated seating.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How can corporate brands or institutions partner?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                Corporate brands can sponsor packages from Title Partner down to Community Supporter, secure activation booth space, provide screening supplies, or speak on stage. Submit a partnership inquiry or call Daniel Obeng-Fianko directly at 0244 651561.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1425,6 +1619,25 @@
       </div>
     </div>
   </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+      <img src="" alt="" id="lightboxImg" class="lightbox-img">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Celebratory Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Floating WhatsApp Outreach Widget -->
+  <a href="https://wa.me/233244651561?text=Hello%20360%20Group%20Ltd%20team!%20I%20am%20inquiring%20about%20the%20Odwadini%20Mpuntuo%20Market%20Women%20Wellness%20%26%20Fun%20Day." target="_blank" class="floating-wa" title="Chat with Event Organizers on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Chat on WhatsApp</span>
+    <span class="floating-wa-pulse"></span>
+  </a>
 
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>

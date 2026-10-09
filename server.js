@@ -18,8 +18,12 @@ const MIME_TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
   '.csv': 'text/csv; charset=utf-8'
 };
 
@@ -223,6 +227,12 @@ function toCsv(rows) {
 
 async function handleApi(req, res, pathname) {
   const method = req.method;
+
+  // GET /api/health
+  if (method === 'GET' && pathname === '/api/health') {
+    sendJson(res, 200, { ok: true, status: 'healthy', version: '2.0.0', timestamp: new Date().toISOString() });
+    return;
+  }
 
   // POST /api/admin/login
   if (method === 'POST' && pathname === '/api/admin/login') {
