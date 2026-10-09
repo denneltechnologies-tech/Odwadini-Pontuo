@@ -510,11 +510,15 @@ function initHeroCarousel() {
 
     const dotsContainer = carousel.querySelector('.hero-carousel-dots');
     const tagEl = carousel.querySelector('.hero-carousel-tag');
-    const prevBtn = carousel.querySelector('#heroPrevBtn, .prev-btn');
-    const nextBtn = carousel.querySelector('#heroNextBtn, .next-btn');
+    const prevBtn = carousel.querySelector('.hero-carousel-btn-prev, #heroPrevBtn, .prev-btn');
+    const nextBtn = carousel.querySelector('.hero-carousel-btn-next, #heroNextBtn, .next-btn');
 
     let current = 0;
     let timer = null;
+
+    // Parent hero container containing glance cards if present
+    const heroSection = carousel.closest('.hero-editorial') || carousel.closest('.hero-visual-frame') || carousel.parentElement;
+    const glanceCards = heroSection ? heroSection.querySelectorAll('.hero-glance-card') : [];
 
     // Create dots if container exists
     if (dotsContainer) {
@@ -523,16 +527,32 @@ function initHeroCarousel() {
         const dot = document.createElement('button');
         dot.className = `hero-carousel-dot ${idx === 0 ? 'active' : ''}`;
         dot.setAttribute('aria-label', `Slide ${idx + 1}`);
-        dot.addEventListener('click', () => { goToSlide(idx); startAuto(); });
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(idx);
+          startAuto();
+        });
         dotsContainer.appendChild(dot);
       });
     }
+
+    // Connect glance cards to direct slide navigation
+    glanceCards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(idx % slides.length);
+        startAuto();
+      });
+    });
 
     function updateTag() {
       if (tagEl && slides[current]) {
         const title = slides[current].getAttribute('data-title') || 'Makola Live Moments';
         tagEl.textContent = title;
       }
+      glanceCards.forEach((card, idx) => {
+        card.classList.toggle('active', idx === current % Math.max(glanceCards.length, 1));
+      });
     }
 
     function goToSlide(index) {
@@ -557,7 +577,7 @@ function initHeroCarousel() {
 
     function startAuto() {
       stopAuto();
-      timer = setInterval(nextSlide, 4200);
+      timer = setInterval(nextSlide, 3800);
     }
 
     function stopAuto() {
@@ -567,8 +587,20 @@ function initHeroCarousel() {
       }
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAuto(); });
-    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAuto(); });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevSlide();
+        startAuto();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextSlide();
+        startAuto();
+      });
+    }
 
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
@@ -679,15 +711,15 @@ async function initAllGallery() {
 }
 
 function renderGalleryGrid() {
-  const grid = document.getElementById('galleryGrid');
-  if (!grid) return;
+  const grids = document.querySelectorAll('#galleryGrid, #galleryGridFull');
+  if (!grids.length) return;
 
   const toRender = currentFilteredItems.slice(0, galleryRenderedCount);
-  grid.innerHTML = toRender.map((item, idx) => {
+  const html = toRender.map((item, idx) => {
     const catLabel = getCategoryLabel(item.category, item.year);
     return `
       <div class="gallery-card" data-cat="${item.category}" data-year="${item.year}" onclick="openLightboxByIndex(${idx})">
-        <img src="${item.src}" alt="${item.title}" loading="lazy">
+        <img src="${item.src}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='Last year pictures/WhatsApp Image 2026-10-09 at 8.45.14 AM (1).jpeg'">
         <div class="gallery-card-overlay">
           <span class="gallery-card-tag">${catLabel}</span>
           <h4 class="gallery-card-title">${item.title}</h4>
@@ -696,6 +728,7 @@ function renderGalleryGrid() {
     `;
   }).join('');
 
+  grids.forEach(g => { g.innerHTML = html; });
   updateGalleryStatus();
 }
 
@@ -711,32 +744,32 @@ function getCategoryLabel(cat, year) {
 }
 
 function updateGalleryStatus() {
-  const countEl = document.getElementById('galleryCountStatus');
-  const chipEl = document.getElementById('galleryEditionChip');
-  const remBadge = document.getElementById('galleryRemainingBadge');
-  const loadMoreBtn = document.getElementById('galleryLoadMoreBtn');
-  const showAllBtn = document.getElementById('galleryShowAllBtn');
+  const countEls = document.querySelectorAll('#galleryCountStatus, #galleryCountStatusFull');
+  const chipEls = document.querySelectorAll('#galleryEditionChip, #galleryEditionChipFull');
+  const remBadges = document.querySelectorAll('#galleryRemainingBadge, #galleryRemainingBadgeFull');
+  const loadMoreBtns = document.querySelectorAll('#galleryLoadMoreBtn, #galleryLoadMoreBtnFull');
+  const showAllBtns = document.querySelectorAll('#galleryShowAllBtn, #galleryShowAllBtnFull');
 
   const total = currentFilteredItems.length;
   const current = Math.min(galleryRenderedCount, total);
 
-  if (countEl) countEl.textContent = `Showing ${current} of ${total} authentic moments`;
-  if (chipEl) {
+  countEls.forEach(el => { el.textContent = `Showing ${current} of ${total} authentic moments`; });
+  chipEls.forEach(chipEl => {
     if (currentFilterCat === '2026') chipEl.textContent = '2026 Makola Edition (100 Photos)';
     else if (currentFilterCat === '2025') chipEl.textContent = '2025 Highlights Archive (11 Photos)';
     else if (currentFilterCat === 'all') chipEl.textContent = 'Complete Archive (111 Photos)';
     else chipEl.textContent = `Filtered: ${currentFilterCat.toUpperCase()} (${total} total)`;
-  }
+  });
 
   const remaining = total - current;
-  if (remBadge) remBadge.textContent = `${remaining} left`;
+  remBadges.forEach(b => { b.textContent = `${remaining} left`; });
 
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display = remaining > 0 ? 'inline-flex' : 'none';
-  }
-  if (showAllBtn) {
-    showAllBtn.style.display = remaining > 0 ? 'inline-flex' : 'none';
-  }
+  loadMoreBtns.forEach(btn => {
+    btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
+  });
+  showAllBtns.forEach(btn => {
+    btn.style.display = remaining > 0 ? 'inline-flex' : 'none';
+  });
 }
 
 function loadMoreGallery() {
@@ -752,8 +785,9 @@ function showAllGallery() {
 function filterGallery(category, buttonEl) {
   currentFilterCat = category;
   const buttons = document.querySelectorAll('.gallery-filter-btn');
-  buttons.forEach(b => b.classList.remove('active'));
-  if (buttonEl) buttonEl.classList.add('active');
+  buttons.forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-filter') === category);
+  });
 
   if (category === 'all') {
     currentFilteredItems = allGalleryItems.slice();

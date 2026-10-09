@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2026.5">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230e3d2f'/><circle cx='50' cy='50' r='17' fill='%23cba342'/><g stroke='%23cba342' stroke-width='7' stroke-linecap='round'><line x1='50' y1='14' x2='50' y2='24'/><line x1='50' y1='76' x2='50' y2='86'/><line x1='14' y1='50' x2='24' y2='50'/><line x1='76' y1='50' x2='86' y2='50'/><line x1='24' y1='24' x2='31' y2='31'/><line x1='69' y1='69' x2='76' y2='76'/><line x1='76' y1='24' x2='69' y2='31'/><line x1='31' y1='69' x2='24' y2='76'/></g></svg>">
 </head>
@@ -61,6 +61,7 @@
         <a href="#membership" class="nav-link" data-nav="membership" onclick="switchView('membership')">Membership</a>
         <a href="#donate" class="nav-link" data-nav="donate" onclick="switchView('donate')">Donate</a>
         <a href="#partners" class="nav-link" data-nav="partners" onclick="switchView('partners')">Our Partners</a>
+        <a href="#gallery" class="nav-link" data-nav="gallery" onclick="switchView('gallery')">Gallery (111)</a>
         <a href="#contact" class="nav-link" data-nav="contact" onclick="switchView('contact')">Contact</a>
       </nav>
 
@@ -87,7 +88,77 @@
   <main class="page-view active-view" id="view-home">
 
     <!-- Editorial Hero -->
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
     <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="heroCarousel">
+              <div class="hero-carousel-track" id="heroCarouselTrack">
+                <div class="hero-carousel-slide active" data-title="2026 Makola Health Screening">
+                  <img src="assets/images/gallery/this-year-1.jpg" alt="Makola Health Screening 2026" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Aerobics &amp; Vitality Workout">
+                  <img src="assets/images/gallery/last-year-2.jpg" alt="Aerobics &amp; Vitality 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Market Queens in Traditional Prints">
+                  <img src="assets/images/gallery/this-year-3.jpg" alt="Market Queens 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Community Celebration &amp; Fellowship">
+                  <img src="assets/images/gallery/last-year-5.jpg" alt="Community Celebration 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Outstanding Trader Recognitions">
+                  <img src="assets/images/gallery/this-year-5.jpg" alt="Trader Excellence Awards 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Doctor &amp; Vitals Consultations">
+                  <img src="assets/images/gallery/last-year-1.jpg" alt="Wellness Consultations 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 High Spirits &amp; Community Solidarity">
+                  <img src="assets/images/gallery/this-year-7.jpg" alt="Community Solidarity 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Makola Leadership Forum">
+                  <img src="assets/images/gallery/last-year-8.jpg" alt="Makola Leadership Forum 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <!-- Top Live Tag -->
+              <div class="hero-carousel-tag" id="heroCarouselTag">Makola Live Moments</div>
+
+              <!-- Carousel Controls -->
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" id="heroPrevBtn" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" id="heroNextBtn" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <!-- Floating Glass Badges -->
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">👑</div>
+              <div>
+                <div class="hero-badge-val">5,000+</div>
+                <div class="hero-badge-lbl">Market Women in Scope</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🩺</div>
+              <div>
+                <div class="hero-badge-val">100% Free</div>
+                <div class="hero-badge-lbl">Health Screenings &amp; Fun</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
       <div class="container hero-editorial-grid">
         <div class="hero-editorial-copy">
           <span class="hero-meta-kicker">Workers' Day • 1st May 2026 • Makola Market, Accra</span>
@@ -118,66 +189,33 @@
               Become a Partner
             </button>
           </div>
-        </div>
 
-        <div class="hero-visual-frame">
-          <div class="hero-media-wrapper">
-            <div class="hero-carousel" id="heroCarousel">
-              <div class="hero-carousel-track" id="heroCarouselTrack">
-                <div class="hero-carousel-slide active" data-title="2026 Makola Health Screening">
-                  <img src="assets/images/gallery/this-year-1.jpg" alt="Makola Health Screening 2026" loading="eager">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-                <div class="hero-carousel-slide" data-title="2025 Aerobics &amp; Vitality Workout">
-                  <img src="assets/images/gallery/last-year-2.jpg" alt="Aerobics &amp; Vitality 2025" loading="lazy">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-                <div class="hero-carousel-slide" data-title="2026 Market Queens in Traditional Prints">
-                  <img src="assets/images/gallery/this-year-3.jpg" alt="Market Queens 2026" loading="lazy">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-                <div class="hero-carousel-slide" data-title="2025 Community Celebration &amp; Fellowship">
-                  <img src="assets/images/gallery/last-year-5.jpg" alt="Community Celebration 2025" loading="lazy">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-                <div class="hero-carousel-slide" data-title="2026 Outstanding Trader Recognitions">
-                  <img src="assets/images/gallery/this-year-5.jpg" alt="Trader Excellence Awards 2026" loading="lazy">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-                <div class="hero-carousel-slide" data-title="2025 Doctor &amp; Vitals Consultations">
-                  <img src="assets/images/gallery/last-year-1.jpg" alt="Wellness Consultations 2025" loading="lazy">
-                  <div class="hero-carousel-slide-overlay"></div>
-                </div>
-              </div>
-
-              <!-- Top Live Tag -->
-              <div class="hero-carousel-tag" id="heroCarouselTag">Makola Live Moments</div>
-
-              <!-- Carousel Controls -->
-              <div class="hero-carousel-controls">
-                <button class="hero-carousel-btn" id="heroPrevBtn" aria-label="Previous Slide">‹</button>
-                <div class="hero-carousel-dots" id="heroCarouselDots"></div>
-                <button class="hero-carousel-btn" id="heroNextBtn" aria-label="Next Slide">›</button>
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-1.jpg" alt="Health Screening 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Health Screenings</span>
+                <span class="hero-glance-meta">2026 Edition</span>
               </div>
             </div>
-
-            <!-- Floating Glass Badges -->
-            <div class="hero-badge-glass hero-badge-top">
-              <div class="hero-badge-icon">👑</div>
-              <div>
-                <div class="hero-badge-val">5,000+</div>
-                <div class="hero-badge-lbl">Market Women in Scope</div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-2.jpg" alt="Aerobics Workout 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Dawn Aerobics</span>
+                <span class="hero-glance-meta">2025 Edition</span>
               </div>
             </div>
-            <div class="hero-badge-glass hero-badge-bottom">
-              <div class="hero-badge-icon">🩺</div>
-              <div>
-                <div class="hero-badge-val">100% Free</div>
-                <div class="hero-badge-lbl">Health Screenings &amp; Fun</div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-3.jpg" alt="Market Queens 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Market Queens</span>
+                <span class="hero-glance-meta">2026 Edition</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Impact Stats Banner -->
@@ -420,18 +458,100 @@
        VIEW 2: THE EVENT (Programme, Objectives, Execution)
        ========================================================================= -->
   <main class="page-view" id="view-event">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">1st May 2026 • Makola Market • 6:00 AM – 6:00 PM</span>
-        <h1 class="hero-headline" style="max-width:820px;">
-          The Programme &amp; Event Objectives
-        </h1>
-        <p class="hero-lede" style="max-width:750px;">
-          A full-day wellness-centred celebration designed specifically for traders in all 67 markets in the Greater Accra region — one of the busiest trading hubs in the country.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem;">
-          <button class="btn btn-primary btn-lg" onclick="openModal('modal-register')">Register to Participate</button>
-          <button class="btn btn-outline btn-lg" onclick="switchView('partner')">Partner With Us</button>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="eventHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2025 Sunrise Mass Aerobics Session">
+                  <img src="assets/images/gallery/last-year-2.jpg" alt="Sunrise Mass Aerobics Session" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 On-Site Medical Checkups &amp; Vitals">
+                  <img src="assets/images/gallery/this-year-2.jpg" alt="Medical Checkups and Vitals" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Susu Savings &amp; Traders Finance Talk">
+                  <img src="assets/images/gallery/this-year-4.jpg" alt="Susu Savings & Traders Finance Talk" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Traditional Fun Games &amp; Community Joy">
+                  <img src="assets/images/gallery/last-year-5.jpg" alt="Traditional Fun Games" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Market Queens Cultural Appreciation">
+                  <img src="assets/images/gallery/this-year-9.jpg" alt="Market Queens Appreciation" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Live Programme Moments</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">🏃</div>
+              <div>
+                <div class="hero-badge-val">6 AM – 6 PM</div>
+                <div class="hero-badge-lbl">Full-Day Programme</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🎉</div>
+              <div>
+                <div class="hero-badge-val">6 Experiences</div>
+                <div class="hero-badge-lbl">Health, Susu &amp; Fun</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">1st May 2026 • Makola Market • 6:00 AM – 6:00 PM</span>
+          <h1 class="hero-headline">
+            The Programme &amp; <em>Event Objectives</em>
+          </h1>
+          <p class="hero-lede">
+            A full-day wellness celebration designed specifically for traders in all 67 markets in Greater Accra — dawn aerobics, free health screenings, susu financial masterclasses, and vibrant cultural celebrations.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="openModal('modal-register')">Register to Participate</button>
+            <button class="btn btn-outline btn-lg" onclick="switchView('partner')">Partner With Us</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/last-year-2.jpg" alt="Mass Aerobics 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Mass Aerobics</span>
+                <span class="hero-glance-meta">6:00 AM Dawn</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-2.jpg" alt="Health Screening 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Health Checks</span>
+                <span class="hero-glance-meta">9:00 AM Midday</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-4.jpg" alt="Susu Finance 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Susu Masterclass</span>
+                <span class="hero-glance-meta">11:00 AM Session</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -500,6 +620,57 @@
             <img src="assets/images/awards.jpg" alt="Awards & Recognition for Market Queens" class="schedule-thumb" loading="lazy">
           </div>
         </div>
+
+        <!-- In-Page Authentic Photo Showcase -->
+        <div style="margin-top: 4rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Atmosphere &amp; Vitality</span>
+            <h2 class="section-main-title">Captured Highlights from the Grounds</h2>
+            <p class="section-deck">Genuine photos from previous editions showing the health screening stations, aerobics, and fellowship at Makola.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-10.jpg" alt="Sunrise Workout" loading="lazy">
+                <span class="page-photo-card-tag">Vitality</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Energising Sunrise Aerobics</h4>
+                <p class="page-photo-card-desc">Market women stretching and moving in unison before the market gates officially open.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/last-year-3.jpg" alt="Health Consultation" loading="lazy">
+                <span class="page-photo-card-tag">Wellness</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Face-to-Face Screenings</h4>
+                <p class="page-photo-card-desc">Free vitals checks and consultation with licensed healthcare professionals.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-6.jpg" alt="Smiles and Camaraderie" loading="lazy">
+                <span class="page-photo-card-tag">Joy</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Smiles &amp; Camaraderie</h4>
+                <p class="page-photo-card-desc">Laughter, games, and fellowship uniting women traders across Accra's major markets.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/last-year-7.jpg" alt="Awards Ceremony" loading="lazy">
+                <span class="page-photo-card-tag">Honours</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Queen Mothers &amp; Awards</h4>
+                <p class="page-photo-card-desc">Recognising market leaders who have powered Ghana's commerce for decades.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -547,16 +718,94 @@
        VIEW 3: SPONSORSHIP PACKAGES
        ========================================================================= -->
   <main class="page-view" id="view-packages">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Partnership Opportunities • Workers' Day Edition</span>
-        <h1 class="hero-headline">Sponsorship Packages</h1>
-        <p class="hero-lede" style="max-width:760px;">
-          Four partnership tiers — each placing your brand directly in front of thousands of traders across health, finance, and retail. Direct access to informal sector workers, lead generation, brand visibility, and speaking opportunities.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem;">
-          <button class="btn btn-primary btn-lg" onclick="selectPackage('Platinum')">Partner With Us</button>
-          <button class="btn btn-outline btn-lg" onclick="document.getElementById('packageGrid').scrollIntoView({behavior:'smooth'})">Compare Packages</button>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="packagesHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Premier Brand Presence &amp; Staging">
+                  <img src="assets/images/gallery/this-year-14.jpg" alt="Brand Presence at Makola" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 High Trader Turnout &amp; Reach">
+                  <img src="assets/images/gallery/last-year-6.jpg" alt="High Trader Turnout" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Branded Booths &amp; Direct Engagement">
+                  <img src="assets/images/gallery/this-year-18.jpg" alt="Branded Booths" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Corporate Social Responsibility">
+                  <img src="assets/images/gallery/this-year-21.jpg" alt="CSR in Action" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Sponsor Impact Moments</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">💼</div>
+              <div>
+                <div class="hero-badge-val">4 Tiers</div>
+                <div class="hero-badge-lbl">Bronze to Platinum</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🎯</div>
+              <div>
+                <div class="hero-badge-val">Direct Reach</div>
+                <div class="hero-badge-lbl">67 Markets in Accra</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Partnership Opportunities • Workers' Day Edition</span>
+          <h1 class="hero-headline">Sponsorship <em>Packages</em></h1>
+          <p class="hero-lede">
+            Four partnership tiers — each placing your brand directly in front of thousands of traders across health, finance, and retail. Direct access to informal sector workers, lead generation, brand visibility, and speaking opportunities.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="selectPackage('Platinum')">Partner With Us</button>
+            <button class="btn btn-outline btn-lg" onclick="document.getElementById('packageGrid').scrollIntoView({behavior:'smooth'})">Compare Packages</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-14.jpg" alt="Staging Visibility 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Main Staging</span>
+                <span class="hero-glance-meta">High Visibility</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-6.jpg" alt="Trader Engagement 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Audience Reach</span>
+                <span class="hero-glance-meta">5,000+ Traders</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-18.jpg" alt="Booth Space 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Activation Booths</span>
+                <span class="hero-glance-meta">Direct Sampling</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -667,6 +916,47 @@
           </div>
         </div>
 
+        <!-- In-Page Sponsorship Photo Showcase -->
+        <div style="margin-top: 4rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Proof of Impact</span>
+            <h2 class="section-main-title">Sponsorship ROI in Authentic Pictures</h2>
+            <p class="section-deck">See how partner investments translate into unforgettable brand goodwill, customer acquisition, and high community trust.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-15.jpg" alt="Brand Visibility" loading="lazy">
+                <span class="page-photo-card-tag">High Reach</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Prominent Stage &amp; Banner Branding</h4>
+                <p class="page-photo-card-desc">Sponsors receive prime placement in high-density trading zones viewed by over 5,000 women traders.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-17.jpg" alt="Direct Engagement" loading="lazy">
+                <span class="page-photo-card-tag">Lead Gen</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Face-to-Face Product Demonstrations</h4>
+                <p class="page-photo-card-desc">Activate dedicated interactive booths to register susu accounts, distribute samples, and onboard traders.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/last-year-8.jpg" alt="Prestige & Honours" loading="lazy">
+                <span class="page-photo-card-tag">Prestige</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">National Recognition on Stage</h4>
+                <p class="page-photo-card-desc">Corporate executives present honours alongside market queens in televised appreciation segments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div style="text-align:center; padding:1.6rem; background:var(--color-gold-light); border:1px solid var(--color-gold-border); border-radius:var(--radius-sm); font-size:0.9rem; color:var(--color-ink-secondary); margin-top:3rem;">
           Custom partnership arrangements available — contact <strong>Daniel Obeng-Fianko, CEO</strong> at <strong>0244 651561</strong> or
           <a href="#partner" onclick="switchView('partner')" style="color:var(--color-gold-deep); font-weight:600;">send a partnership inquiry &rarr;</a>
@@ -680,16 +970,94 @@
        VIEW 4: PARTNERSHIP
        ========================================================================= -->
   <main class="page-view" id="view-partner">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Work With Us • Workers' Day, 1st May 2026</span>
-        <h1 class="hero-headline">Partnership Opportunities</h1>
-        <p class="hero-lede" style="max-width:760px;">
-          360 Group Ltd invites partners, sponsors, and stakeholders to join in making this Workers' Day meaningful and transformative — with direct access to informal sector workers, lead generation, brand visibility, and speaking opportunities.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem;">
-          <button class="btn btn-primary btn-lg" onclick="document.getElementById('partnerFormCard').scrollIntoView({behavior:'smooth'})">Apply to Partner</button>
-          <button class="btn btn-outline btn-lg" onclick="switchView('packages')">View Packages</button>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="partnerHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Clinical Health Screenings in Action">
+                  <img src="assets/images/gallery/this-year-23.jpg" alt="Clinical Health Screenings" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Banking &amp; Susu Savings Activation">
+                  <img src="assets/images/gallery/last-year-9.jpg" alt="Banking & Susu Activation" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Corporate Product Sampling &amp; Gifting">
+                  <img src="assets/images/gallery/this-year-26.jpg" alt="Product Sampling and Gifting" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Market Queens Executive Alliance">
+                  <img src="assets/images/gallery/this-year-30.jpg" alt="Market Queens Alliance" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Partner Field Activations</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">🤝</div>
+              <div>
+                <div class="hero-badge-val">Multi-Sector</div>
+                <div class="hero-badge-lbl">Health, Banks &amp; FMCG</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">📈</div>
+              <div>
+                <div class="hero-badge-val">High Impact</div>
+                <div class="hero-badge-lbl">Direct Trader Access</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Work With Us • Workers' Day, 1st May 2026</span>
+          <h1 class="hero-headline">Partnership <em>Opportunities</em></h1>
+          <p class="hero-lede">
+            360 Group Ltd invites healthcare institutions, financial partners, and corporate brands to connect directly with 5,000+ informal traders — on-site screening pavilions, financial literacy stages, brand visibility, and lasting community goodwill.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="document.getElementById('partnerFormCard').scrollIntoView({behavior:'smooth'})">Apply to Partner</button>
+            <button class="btn btn-outline btn-lg" onclick="switchView('packages')">View Packages</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-23.jpg" alt="Health Partners 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Health Sector</span>
+                <span class="hero-glance-meta">Clinical Screenings</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-9.jpg" alt="Financial Susu 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Financial &amp; Susu</span>
+                <span class="hero-glance-meta">Trader Accounts</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-26.jpg" alt="FMCG Sampling 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">FMCG &amp; Retail</span>
+                <span class="hero-glance-meta">Product Gifting</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -768,6 +1136,57 @@
               <li>Social media promotion and media coverage inclusion</li>
               <li>Direct engagement with traders across the Greater Accra markets</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- In-Page Partner Sector Showcase -->
+        <div style="margin-top: 4rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">On the Ground</span>
+            <h2 class="section-main-title">Partner Impact Across Makola</h2>
+            <p class="section-deck">Authentic scenes of healthcare workers, financial institutions, and corporate sponsors serving the women of Accra.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-24.jpg" alt="Healthcare in Action" loading="lazy">
+                <span class="page-photo-card-tag">Health</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Diagnostic Screening Stations</h4>
+                <p class="page-photo-card-desc">Medical staff screening traders for vitals, blood sugar, and eyesight with personalized guidance.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-27.jpg" alt="Financial Inclusion" loading="lazy">
+                <span class="page-photo-card-tag">Finance</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Susu &amp; Financial Literacy</h4>
+                <p class="page-photo-card-desc">Banking professionals explaining informal micro-savings accounts and business loans.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-29.jpg" alt="FMCG Sampling" loading="lazy">
+                <span class="page-photo-card-tag">FMCG</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Brand Sampling &amp; Giveaways</h4>
+                <p class="page-photo-card-desc">Handing health kits, nutritious drinks, and household products directly to happy traders.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-31.jpg" alt="Digital Telecoms" loading="lazy">
+                <span class="page-photo-card-tag">Digital</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Telecoms &amp; Mobile Wallets</h4>
+                <p class="page-photo-card-desc">Empowering market women with mobile money safety tips and merchant tools.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -855,13 +1274,95 @@
        VIEW 5: MEMBERSHIP REGISTRATION (Individual / Association)
        ========================================================================= -->
   <main class="page-view" id="view-membership">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Traders &amp; Market Associations</span>
-        <h1 class="hero-headline">Membership Registration</h1>
-        <p class="hero-lede" style="max-width:740px;">
-          Register as an individual trader or through your market association — free membership that connects you to health screening priority, financial wellness sessions, and recognition on the day.
-        </p>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="membershipHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Proud Market Queens of Accra">
+                  <img src="assets/images/gallery/this-year-32.jpg" alt="Market Queens of Accra" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Live Registration &amp; Onboarding Desks">
+                  <img src="assets/images/gallery/last-year-10.jpg" alt="Registration Desks" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Trader Solidarity &amp; Fellowship">
+                  <img src="assets/images/gallery/this-year-35.jpg" alt="Trader Solidarity" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Certified Trader Recognition">
+                  <img src="assets/images/gallery/this-year-38.jpg" alt="Trader Recognition" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Market Queens in Motion</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">👑</div>
+              <div>
+                <div class="hero-badge-val">Free Access</div>
+                <div class="hero-badge-lbl">VIP Care &amp; Badges</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🩺</div>
+              <div>
+                <div class="hero-badge-val">Priority Vitals</div>
+                <div class="hero-badge-lbl">Express Health Desk</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Traders &amp; Market Associations</span>
+          <h1 class="hero-headline">Membership <em>Registration</em></h1>
+          <p class="hero-lede">
+            Register as an individual trader or register an entire market association — 100% free membership that connects you to priority health screenings, susu financial wellness clinics, and recognition on the day.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="document.querySelector('#view-membership form').scrollIntoView({behavior:'smooth'})">Register Free Now</button>
+            <button class="btn btn-outline btn-lg" onclick="switchView('event')">See Programme</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-32.jpg" alt="Market Queens 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Market Queens</span>
+                <span class="hero-glance-meta">Traditional Regalia</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-10.jpg" alt="Registration 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Registration Desk</span>
+                <span class="hero-glance-meta">Makola Main Ground</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-35.jpg" alt="Solidarity 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Sisterhood &amp; Unity</span>
+                <span class="hero-glance-meta">Traders Fellowship</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1009,6 +1510,57 @@
             </form>
           </div>
         </div>
+
+        <!-- In-Page Traders Photo Showcase -->
+        <div style="margin-top: 4.5rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Our Community</span>
+            <h2 class="section-main-title">Faces &amp; Voices of Makola Traders</h2>
+            <p class="section-deck">Meet some of the hardworking women across Accra's major markets whose dedication powers Ghana's economy every single day.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-33.jpg" alt="Cloth & Fabric Trader" loading="lazy">
+                <span class="page-photo-card-tag">Fabrics Wing</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Traditional Cloth &amp; Kente Traders</h4>
+                <p class="page-photo-card-desc">Preserving Ghanaian textile heritage and sustaining families through vibrant marketplace commerce.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-36.jpg" alt="Fresh Produce Traders" loading="lazy">
+                <span class="page-photo-card-tag">Foodstuffs Union</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Grains, Tubers &amp; Fresh Foodstuffs</h4>
+                <p class="page-photo-card-desc">The early-morning backbone who ensure households across the capital are fed daily.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/last-year-11.jpg" alt="Veteran Trader" loading="lazy">
+                <span class="page-photo-card-tag">30+ Years Trading</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Veteran Market Leadership</h4>
+                <p class="page-photo-card-desc">Respected queen mothers whose wisdom guides trade disputes and community solidarity.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-39.jpg" alt="Crafts and Beads" loading="lazy">
+                <span class="page-photo-card-tag">Arts &amp; Beads</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Jewellery, Beads &amp; Cosmetics</h4>
+                <p class="page-photo-card-desc">Artisans and retail traders adding beauty and cultural celebration to our commercial hubs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1018,13 +1570,95 @@
        VIEW 6: DONATE
        ========================================================================= -->
   <main class="page-view" id="view-donate">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Support the Backbone</span>
-        <h1 class="hero-headline">Donate to Odwadini Mpuntuo</h1>
-        <p class="hero-lede" style="max-width:740px;">
-          Every gift puts a health check, a wellness talk, or a moment of appreciation in front of a market woman who rarely gets one. Give once, give monthly, or donate on the day.
-        </p>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="donateHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Free Diagnostic Screening Tents">
+                  <img src="assets/images/gallery/this-year-40.jpg" alt="Screening Tents" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Blood Pressure Screenings for Seniors">
+                  <img src="assets/images/gallery/last-year-4.jpg" alt="Blood Pressure Screenings" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Refreshment &amp; Care Packs for Traders">
+                  <img src="assets/images/gallery/this-year-43.jpg" alt="Care Packs" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Smiles of Gratitude from Makola Mothers">
+                  <img src="assets/images/gallery/this-year-46.jpg" alt="Gratitude from Traders" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Impact in Action</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">💖</div>
+              <div>
+                <div class="hero-badge-val">100% Free</div>
+                <div class="hero-badge-lbl">To Every Trader</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🩺</div>
+              <div>
+                <div class="hero-badge-val">Real Care</div>
+                <div class="hero-badge-lbl">Screenings &amp; Tests</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Support the Backbone</span>
+          <h1 class="hero-headline">Donate to <em>Odwadini Mpuntuo</em></h1>
+          <p class="hero-lede">
+            Every contribution directly funds free diagnostic screenings, medicine test strips, hydration stations, and care packages for the hardworking market women of Greater Accra who sustain our families.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="document.querySelector('#view-donate form').scrollIntoView({behavior:'smooth'})">Pledge a Donation</button>
+            <button class="btn btn-outline btn-lg" onclick="switchView('event')">Explore The Event</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-40.jpg" alt="Screening Tent 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Screening Tents</span>
+                <span class="hero-glance-meta">Free Medical Care</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-4.jpg" alt="Blood Pressure Check 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Hypertension Care</span>
+                <span class="hero-glance-meta">BP &amp; Sugar Tests</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-43.jpg" alt="Care Packs 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Care &amp; Nutrition</span>
+                <span class="hero-glance-meta">Hygiene Kits</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1131,6 +1765,47 @@
             </div>
           </div>
         </div>
+
+        <!-- In-Page Donation Impact Photo Showcase -->
+        <div style="margin-top: 4rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Visible Accountability</span>
+            <h2 class="section-main-title">Where Your Donations Deliver Direct Impact</h2>
+            <p class="section-deck">Every Cedi pledged goes straight into medical supplies, doctor stations, and wellness provisions for Accra's market women.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-41.jpg" alt="Diagnostic Supplies" loading="lazy">
+                <span class="page-photo-card-tag">₵50 Pledge</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Diagnostic Test Strips &amp; Kits</h4>
+                <p class="page-photo-card-desc">Funds glucose strips, lancets, and digital blood pressure cuffs used for on-the-spot screening.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-44.jpg" alt="Clinical Consultations" loading="lazy">
+                <span class="page-photo-card-tag">₵150 Pledge</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Doctor Consultation &amp; Referral</h4>
+                <p class="page-photo-card-desc">Covers medical consultation time, medication counselling, and formal hospital referral documentation.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-47.jpg" alt="Wellness Care Packs" loading="lazy">
+                <span class="page-photo-card-tag">₵500 Pledge</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Wellness Care Packs &amp; Hydration</h4>
+                <p class="page-photo-card-desc">Provides complete nutrition hampers, water bottles, and wellness packs for veteran market mamas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1140,16 +1815,94 @@
        VIEW 7: OUR PARTNERS
        ========================================================================= -->
   <main class="page-view" id="view-partners">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Made Possible Together</span>
-        <h1 class="hero-headline">Our Partners</h1>
-        <p class="hero-lede" style="max-width:750px;">
-          Odwadini Mpuntuo is delivered with partners across health, finance, telecoms, consumer brands, and the market associations themselves. Every logo on this page represents a commitment to Ghana's traders.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem;">
-          <button class="btn btn-primary btn-lg" onclick="switchView('partner')">Become a Partner</button>
-          <button class="btn btn-outline btn-lg" onclick="switchView('packages')">View Packages</button>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="partnersHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Partner Screening Stations">
+                  <img src="assets/images/gallery/this-year-50.jpg" alt="Partner Screening Stations" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Partner Honours Presentation">
+                  <img src="assets/images/gallery/this-year-52.jpg" alt="Partner Honours Presentation" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Stakeholder Walkthrough &amp; Alliance">
+                  <img src="assets/images/gallery/this-year-55.jpg" alt="Stakeholder Alliance" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Shared Celebration with Market Women">
+                  <img src="assets/images/gallery/last-year-5.jpg" alt="Shared Celebration" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Partner Field Presence</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">🏛️</div>
+              <div>
+                <div class="hero-badge-val">Multi-Sector</div>
+                <div class="hero-badge-lbl">Healthcare &amp; Finance</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">🤝</div>
+              <div>
+                <div class="hero-badge-val">National</div>
+                <div class="hero-badge-lbl">Market Queen Alliances</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Made Possible Together</span>
+          <h1 class="hero-headline">Our <em>Partners</em></h1>
+          <p class="hero-lede">
+            Odwadini Mpuntuo is delivered with esteemed corporate, healthcare, and civic institutions across Ghana. Every partnership reflects a tangible commitment to caring for the women who power our commerce.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="switchView('partner')">Become a Partner</button>
+            <button class="btn btn-outline btn-lg" onclick="switchView('packages')">View Packages</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-50.jpg" alt="Partner Medical Pavilion 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Medical Stations</span>
+                <span class="hero-glance-meta">Healthcare Partners</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-52.jpg" alt="Partner Awards 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Executive Awards</span>
+                <span class="hero-glance-meta">Partner Honours</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-5.jpg" alt="Partner Celebration 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Community Joy</span>
+                <span class="hero-glance-meta">Shared Fellowship</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1238,6 +1991,57 @@
           </div>
         </div>
 
+        <!-- In-Page Partner Collaboration Showcase -->
+        <div style="margin-top: 4.5rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">Joint Impact</span>
+            <h2 class="section-main-title">Moments of Collaboration &amp; Recognition</h2>
+            <p class="section-deck">Glimpses of corporate and medical partners standing shoulder-to-shoulder with Makola Market leadership.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-51.jpg" alt="Screening Booth Operations" loading="lazy">
+                <span class="page-photo-card-tag">Clinical Care</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Diagnostic Pavilion Operations</h4>
+                <p class="page-photo-card-desc">Partner medical professionals delivering consultations directly under branded pavilions.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-53.jpg" alt="Stage Acknowledgments" loading="lazy">
+                <span class="page-photo-card-tag">Recognition</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Mainstage Presentations</h4>
+                <p class="page-photo-card-desc">Corporate executives recognized before the crowd for supporting market women's health.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-56.jpg" alt="Corporate Social Footprint" loading="lazy">
+                <span class="page-photo-card-tag">CSR Impact</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Tangible Marketplace CSR</h4>
+                <p class="page-photo-card-desc">Direct distribution of essentials, health kits, and wellness packages to trading stalls.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/last-year-7.jpg" alt="Market Queens Collaboration" loading="lazy">
+                <span class="page-photo-card-tag">Leadership</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Alliance with Queen Mothers</h4>
+                <p class="page-photo-card-desc">Building generational trust with the matriarchs who direct Ghana's market commerce.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div style="margin-top:3.5rem; text-align:center; padding:2rem; background:var(--color-gold-light); border:1px solid var(--color-gold-border); border-radius:var(--radius-sm);">
           <h3 class="font-serif" style="font-size:1.35rem; margin-bottom:0.5rem;">Want your logo here?</h3>
           <p style="font-size:0.92rem; color:var(--color-ink-secondary); margin-bottom:1.2rem;">
@@ -1257,13 +2061,95 @@
        VIEW 8: CONTACT & ORGANIZERS
        ========================================================================= -->
   <main class="page-view" id="view-contact">
-    <section class="hero-editorial" style="padding:3.5rem 0;">
-      <div class="container">
-        <span class="hero-meta-kicker">Talk to the Team</span>
-        <h1 class="hero-headline">Contact &amp; the Organizers</h1>
-        <p class="hero-lede" style="max-width:720px;">
-          Inquiries on partnerships, membership, donations, press, and event day coordination — 360 Group Ltd responds within one business day.
-        </p>
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="contactHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Makola Central Event Operations Desk">
+                  <img src="assets/images/gallery/this-year-60.jpg" alt="Event Operations Desk" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 360 Group Event Coordination Team">
+                  <img src="assets/images/gallery/this-year-62.jpg" alt="Event Coordination Team" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Traders Helpdesk &amp; Community Coordination">
+                  <img src="assets/images/gallery/this-year-65.jpg" alt="Community Coordination" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 On-Site Registration Liaison">
+                  <img src="assets/images/gallery/last-year-1.jpg" alt="Registration Liaison" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Ground Secretariat</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">📍</div>
+              <div>
+                <div class="hero-badge-val">Makola Market</div>
+                <div class="hero-badge-lbl">Central Pavilion, Accra</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">📞</div>
+              <div>
+                <div class="hero-badge-val">0244 651561</div>
+                <div class="hero-badge-lbl">CEO &amp; Liaison Hotline</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Talk to the Team</span>
+          <h1 class="hero-headline">Contact &amp; <em>Organizers</em></h1>
+          <p class="hero-lede">
+            Inquiries on corporate partnerships, membership registrations, donation pledges, media, and event day coordination — 360 Group Ltd responds within one business day.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <a href="tel:+233244651561" class="btn btn-primary btn-lg">Call 0244 651561</a>
+            <button class="btn btn-outline btn-lg" onclick="document.querySelector('#view-contact form').scrollIntoView({behavior:'smooth'})">Send a Message</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-60.jpg" alt="Secretariat 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Operations Desk</span>
+                <span class="hero-glance-meta">Central Secretariat</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-62.jpg" alt="Coordinating Team 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Event Team</span>
+                <span class="hero-glance-meta">360 Group Ltd</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-65.jpg" alt="Traders Helpdesk 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Liaison Hub</span>
+                <span class="hero-glance-meta">Makola Venue</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1359,6 +2245,47 @@
           </div>
         </div>
 
+        <!-- In-Page Ground Operations Photo Showcase -->
+        <div style="margin-top: 4rem;">
+          <div class="section-heading-center">
+            <span class="section-kicker">On-Site Readiness</span>
+            <h2 class="section-main-title">Ground Operations &amp; Makola Secretariat</h2>
+            <p class="section-deck">Dedicated teams, clear signposting, and medical command stations ensure seamless execution for thousands of traders.</p>
+          </div>
+          <div class="page-photo-grid">
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-61.jpg" alt="Secretariat Pavilion" loading="lazy">
+                <span class="page-photo-card-tag">Command Center</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Central Event Command Hub</h4>
+                <p class="page-photo-card-desc">Where stage schedules, medical coordination, and lost-and-found services are professionally managed.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-63.jpg" alt="Field Liaison Teams" loading="lazy">
+                <span class="page-photo-card-tag">Field Teams</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Market Volunteers &amp; Liaison</h4>
+                <p class="page-photo-card-desc">Trained community assistants guiding traders, distributing water, and managing queues with patience.</p>
+              </div>
+            </div>
+            <div class="page-photo-card">
+              <div class="page-photo-card-img-wrap">
+                <img src="assets/images/gallery/this-year-66.jpg" alt="Welcome Desks" loading="lazy">
+                <span class="page-photo-card-tag">Welcome Hub</span>
+              </div>
+              <div class="page-photo-card-body">
+                <h4 class="page-photo-card-title">Express Entry &amp; Information</h4>
+                <p class="page-photo-card-desc">Rapid check-in and information distribution points stationed at primary market gates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Interactive FAQ Accordion -->
         <div style="margin-top: 4.5rem;">
           <div class="section-heading-center">
@@ -1415,6 +2342,154 @@
 
 
   <!-- =========================================================================
+       VIEW 9: COMPLETE PHOTO GALLERY (ALL 111 MOMENTS)
+       ========================================================================= -->
+  <main class="page-view" id="view-gallery">
+    <!-- Gallery Hero Section with Sliding Carousel -->
+    <!-- Editorial Hero (Full Background Immersive Slideshow) -->
+    <section class="hero-editorial">
+      <!-- Full-Bleed Background Carousel -->
+      <div class="hero-visual-frame">
+        <div class="hero-media-wrapper">
+          <div class="hero-carousel" id="galleryHeroCarousel">
+              <div class="hero-carousel-track">
+                <div class="hero-carousel-slide active" data-title="2026 Makola Health Screening Highlights">
+                  <img src="assets/images/gallery/this-year-1.jpg" alt="Health Screening 2026" loading="eager">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Inaugural Edition Mass Aerobics">
+                  <img src="assets/images/gallery/last-year-2.jpg" alt="Mass Aerobics 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Market Queens in Traditional Kente">
+                  <img src="assets/images/gallery/this-year-3.jpg" alt="Market Queens 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2026 Joyful Celebration &amp; High Spirits">
+                  <img src="assets/images/gallery/this-year-8.jpg" alt="Celebration 2026" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+                <div class="hero-carousel-slide" data-title="2025 Doctor &amp; Vitals Consultations">
+                  <img src="assets/images/gallery/last-year-1.jpg" alt="Vitals Consultations 2025" loading="lazy">
+                  <div class="hero-carousel-slide-overlay"></div>
+                </div>
+              </div>
+
+              <div class="hero-carousel-tag">Featured Highlights</div>
+
+              <div class="hero-carousel-controls">
+                <button class="hero-carousel-btn hero-carousel-btn-prev" aria-label="Previous Slide">‹</button>
+                <div class="hero-carousel-dots"></div>
+                <button class="hero-carousel-btn hero-carousel-btn-next" aria-label="Next Slide">›</button>
+              </div>
+            </div>
+
+            <div class="hero-badge-glass hero-badge-top">
+              <div class="hero-badge-icon">📸</div>
+              <div>
+                <div class="hero-badge-val">111 Photos</div>
+                <div class="hero-badge-lbl">2025 &amp; 2026 Archive</div>
+              </div>
+            </div>
+            <div class="hero-badge-glass hero-badge-bottom">
+              <div class="hero-badge-icon">✨</div>
+              <div>
+                <div class="hero-badge-val">100% Authentic</div>
+                <div class="hero-badge-lbl">Ground Photography</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Foreground Floating Content On Top of Sliding Media -->
+      <div class="container hero-editorial-grid">
+        <div class="hero-editorial-copy">
+          <span class="hero-meta-kicker">Visual Archive • 2025 &amp; 2026 Editions</span>
+          <h1 class="hero-headline">
+            Makola Market in <em>Full Colour &amp; Energy</em>
+          </h1>
+          <p class="hero-lede">
+            Explore 111 genuine, unedited moments from the inaugural 2025 celebration and the vibrant 2026 Workers' Day edition — capturing the joy, laughter, dawn mass aerobics, free medical checkups, and timeless dignity of Accra's market women.
+          </p>
+          <div class="hero-cta-group" style="margin-top:1.8rem;">
+            <button class="btn btn-primary btn-lg" onclick="showAllGallery()">Show All 111 Moments</button>
+            <button class="btn btn-outline btn-lg" onclick="openModal('modal-register')">Register to Participate</button>
+          </div>
+
+          <!-- Hero Multi-Glance 3-Photo Sliding Preview Strip -->
+          <div class="hero-multi-glance">
+            <div class="hero-glance-card active">
+              <img src="assets/images/gallery/this-year-1.jpg" alt="Health 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Health Screenings</span>
+                <span class="hero-glance-meta">2026 Edition</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/last-year-2.jpg" alt="Aerobics 2025">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Dawn Aerobics</span>
+                <span class="hero-glance-meta">2025 Edition</span>
+              </div>
+            </div>
+            <div class="hero-glance-card">
+              <img src="assets/images/gallery/this-year-3.jpg" alt="Queens 2026">
+              <div class="hero-glance-info">
+                <span class="hero-glance-title">Market Queens</span>
+                <span class="hero-glance-meta">2026 Edition</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Complete Archive Section -->
+    <section class="gallery-section section-alt" style="padding-top:3.5rem;">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="section-kicker">Full Photo Archive</span>
+          <h2 class="section-main-title">Every Moment, Every Smile</h2>
+          <p class="section-deck">
+            Filter by edition or activity, click any photo to open high-definition view with lightbox and zoom, or download pictures for event keepsakes.
+          </p>
+        </div>
+
+        <div class="gallery-filter-bar">
+          <button class="gallery-filter-btn active" data-filter="all" onclick="filterGallery('all', this)">All Moments (111)</button>
+          <button class="gallery-filter-btn" data-filter="2026" onclick="filterGallery('2026', this)">📸 2026 This Year (100)</button>
+          <button class="gallery-filter-btn" data-filter="2025" onclick="filterGallery('2025', this)">🏛️ 2025 Highlights (11)</button>
+          <button class="gallery-filter-btn" data-filter="health" onclick="filterGallery('health', this)">🩺 Health &amp; Screenings</button>
+          <button class="gallery-filter-btn" data-filter="aerobics" onclick="filterGallery('aerobics', this)">🏃 Dawn Aerobics</button>
+          <button class="gallery-filter-btn" data-filter="community" onclick="filterGallery('community', this)">👑 Market Queens</button>
+          <button class="gallery-filter-btn" data-filter="celebration" onclick="filterGallery('celebration', this)">🎉 Celebrations</button>
+          <button class="gallery-filter-btn" data-filter="awards" onclick="filterGallery('awards', this)">🏆 Awards &amp; Honours</button>
+        </div>
+
+        <div class="gallery-status-bar">
+          <span id="galleryCountStatusFull">Showing 24 of 111 authentic moments</span>
+          <span class="gallery-count-chip" id="galleryEditionChipFull">Archive of 2025 &amp; 2026 Editions</span>
+        </div>
+
+        <div class="gallery-grid" id="galleryGridFull">
+          <!-- Populated by app.js with all 111 photos -->
+        </div>
+
+        <div class="gallery-load-wrapper">
+          <button class="btn btn-primary gallery-load-btn" id="galleryLoadMoreBtnFull" onclick="loadMoreGallery()">
+            <span>Load More Moments (+24)</span>
+            <span id="galleryRemainingBadgeFull" style="font-size:0.8rem; background:rgba(255,255,255,0.25); padding:2px 8px; border-radius:12px;">87 left</span>
+          </button>
+          <button class="btn btn-outline gallery-load-btn" id="galleryShowAllBtnFull" onclick="showAllGallery()">
+            Show All 111 Moments
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- =========================================================================
        FOOTER
        ========================================================================= -->
   <footer class="site-footer">
@@ -1443,6 +2518,7 @@
           <ul class="footer-list">
             <li><a href="#event" onclick="switchView('event')">Programme &amp; Highlights</a></li>
             <li><a href="#event" onclick="switchView('event')">Event Objectives</a></li>
+            <li><a href="#gallery" onclick="switchView('gallery')">Photo Gallery (111 Photos)</a></li>
             <li><a href="#home" onclick="switchView('home')">Event Overview</a></li>
             <li><a href="#contact" onclick="switchView('contact')">Venue &amp; Directions</a></li>
           </ul>
@@ -1655,6 +2731,6 @@
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2026.5"></script>
 </body>
 </html>

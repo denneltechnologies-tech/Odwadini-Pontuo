@@ -420,7 +420,11 @@ function serveStatic(req, res, pathname) {
       return;
     }
 
-    res.writeHead(200, { 'Content-Type': contentType, 'Access-Control-Allow-Origin': '*' });
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-cache, must-revalidate'
+    });
     fs.createReadStream(filePath).pipe(res);
   });
 }
